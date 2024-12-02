@@ -33,21 +33,19 @@ public class RastreamentoServiceImpl implements RastreamentoService {
     @Override
     public DirectionsResponse findDirectionsByEntregadorId(Long entregadorId) {
         var rota = rotaService.findEntityByEntregadorIdAndStatus(entregadorId, RotaStatusEnum.EM_ANDAMENTO);
-        return openRouteService.getDirectionsByRastreamentoAndRota(getRastreamentoByRota(rota), rota);
+        return openRouteService.getDirectionsByRastreamentoAndRota(
+                repository.findByRota(rota).orElse(null),
+                rota
+        );
     }
 
     @Override
     public DirectionsResponse findDirectionsByPedidoId(Long pedidoId) {
         var rota = rotaService.findEntityByPedidoId(pedidoId);
         return openRouteService.getDirectionsByRastreamentoAndParada(
-                getRastreamentoByRota(rota),
+                repository.findByRota(rota).orElseThrow(() -> new ResourceNotFoundException("Rastreamento não encontrado pela rota")),
                 getParadaByPedidoId(pedidoId, rota)
         );
-    }
-
-    private Rastreamento getRastreamentoByRota(Rota rota) {
-        return repository.findByRota(rota)
-                .orElseThrow(() -> new ResourceNotFoundException("Rastreamento não encontrado pela rota"));
     }
 
     private static Parada getParadaByPedidoId(Long pedidoId, Rota rota) {

@@ -27,7 +27,7 @@ public interface RotaMapper {
     RotaResponse toRotaResponse(Rota rota);
 
     @Mapping(target = "id", ignore = true)
-    @Mapping(target = "status", constant = "PENDENTE")
+    @Mapping(target = "status", constant = "EM_ANDAMENTO")
     @Mapping(target = "paradas", source = "route.steps", qualifiedByName = "mapParadas")
     Rota toRota(OptimizeResponse.Route route, Entregador entregador, Origem origem);
 

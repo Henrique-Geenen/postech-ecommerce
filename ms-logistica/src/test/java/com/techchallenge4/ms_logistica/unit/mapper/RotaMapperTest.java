@@ -1,6 +1,7 @@
 package com.techchallenge4.ms_logistica.unit.mapper;
 
 import com.techchallenge4.ms_logistica.domain.Rota;
+import com.techchallenge4.ms_logistica.enums.RotaStatusEnum;
 import com.techchallenge4.ms_logistica.mapper.RotaMapper;
 import com.techchallenge4.ms_logistica.utils.EntregadorUtils;
 import com.techchallenge4.ms_logistica.utils.MapperUtils;
@@ -94,7 +95,7 @@ class RotaMapperTest {
             var rota = mapper.toRota(route, entregador, origem);
 
             // Then
-            assertEquals("PENDENTE", rota.getStatus().name());
+            assertEquals(RotaStatusEnum.EM_ANDAMENTO, rota.getStatus());
         }
 
         @Test

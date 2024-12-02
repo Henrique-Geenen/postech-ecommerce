@@ -88,7 +88,7 @@ class RastreamentoServiceImplTest {
             verify(openRouteService, times(1)).getDirectionsByRastreamentoAndRota(rastreamento, rota);
         }
         @Test
-        void shouldThrowResourceNotFoundException() {
+        void shouldThrowResourceNotFoundExceptionWhenRotaNotFound() {
             // Given
             var entregadorId = 1L;
 
