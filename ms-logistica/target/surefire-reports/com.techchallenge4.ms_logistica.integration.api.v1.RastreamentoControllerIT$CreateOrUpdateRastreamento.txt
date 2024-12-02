@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.techchallenge4.ms_logistica.integration.api.v1.RastreamentoControllerIT$CreateOrUpdateRastreamento
--------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.146 s -- in com.techchallenge4.ms_logistica.integration.api.v1.RastreamentoControllerIT$CreateOrUpdateRastreamento
