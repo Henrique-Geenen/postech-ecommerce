@@ -26,6 +26,7 @@ O projeto é composto pelos seguintes microsserviços:
 
 - Docker
 - Docker Compose
+- .env (arquivo de variáveis de ambiente, deve ser importado para a raiz do projeto)
 
 ## Início Rápido
 
@@ -44,7 +45,13 @@ Use o Docker Compose para construir e executar a aplicação:
 docker-compose up --build
 ```
 
-Este comando iniciará todos os microsserviços junto com PostgreSQL e RabbitMQ.
+Ou use o Makefile:
+
+```sh
+make up
+```
+
+Estes comandos iniciarão todos os microsserviços junto com PostgreSQL e RabbitMQ.
 
 ### Acessar os Serviços
 
