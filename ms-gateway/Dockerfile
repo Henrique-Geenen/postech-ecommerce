@@ -18,6 +18,10 @@ COPY --from=builder /builder/extracted/application/ ./
 EXPOSE 8080
 
 ENV JWT_SECRET=''
+ENV SERVICE_CLIENTE_URL=''
+ENV SERVICE_LOGISTICA_URL=''
+ENV SERVICE_PEDIDO_URL=''
+ENV SERVICE_PRODUTO_URL=''
 
 RUN java -XX:ArchiveClassesAtExit=application.jsa -Dspring.context.exit=onRefresh -jar application.jar
 ENTRYPOINT ["java", "-XX:SharedArchiveFile=application.jsa", "-jar", "application.jar"]

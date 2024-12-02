@@ -123,6 +123,11 @@ services:
     container_name: ms_gateway
     env_file:
       - .env
+    depends_on:
+      - ms-cliente
+      - ms-logistica
+      - ms-pedido
+      - ms-produto
     ports:
       - "8080:8080"
     networks:
