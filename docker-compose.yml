@@ -44,7 +44,7 @@ services:
     ports:
       - "8081:8081"
     environment:
-      POSTGRES_URL: postgres_db
+      POSTGRES_URL: ${POSTGRES_URL}
       POSTGRES_USERNAME: ${POSTGRES_USERNAME}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       POSTGRES_DATABASE: ${POSTGRES_DATABASE}
@@ -64,11 +64,12 @@ services:
     ports:
       - "8082:8082"
     environment:
-      POSTGRES_URL: postgres_db
+      POSTGRES_URL: ${POSTGRES_URL}
       POSTGRES_USERNAME: ${POSTGRES_USERNAME}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       POSTGRES_DATABASE: ${POSTGRES_DATABASE}
       OPENROUTE_API_KEY: ${OPENROUTE_API_KEY}
+      SERVICE_PEDIDO_URL: ${SERVICE_PEDIDO_URL}
     networks:
       - netpostech
 
@@ -84,7 +85,7 @@ services:
     ports:
       - "8083:8083"
     environment:
-      POSTGRES_URL: postgres_db
+      POSTGRES_URL: ${POSTGRES_URL}
       POSTGRES_USERNAME: ${POSTGRES_USERNAME}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       POSTGRES_DATABASE: ${POSTGRES_DATABASE}
@@ -92,6 +93,8 @@ services:
       RABBITMQ_PORT: ${RABBITMQ_PORT}
       RABBITMQ_USER: ${RABBITMQ_USERNAME}
       RABBITMQ_PASSWORD: ${RABBITMQ_PASSWORD}
+      SERVICE_CLIENTE_URL: ${SERVICE_CLIENTE_URL}
+      SERVICE_PRODUTO_URL: ${SERVICE_PRODUTO_URL}
     networks:
       - netpostech
 
@@ -107,7 +110,7 @@ services:
     ports:
       - "8084:8084"
     environment:
-      POSTGRES_URL: postgres_db
+      POSTGRES_URL: ${POSTGRES_URL}
       POSTGRES_USERNAME: ${POSTGRES_USERNAME}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       POSTGRES_DATABASE: ${POSTGRES_DATABASE}
