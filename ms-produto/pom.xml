@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>br.com.grupo27.tech.challenge</groupId>
-    <artifactId>msproduto</artifactId>
+    <artifactId>ms-produto</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>produto</name>
-    <description>produto</description>
+    <name>ms-produto</name>
+    <description>ms-produto</description>
     <url/>
     <licenses>
         <license/>

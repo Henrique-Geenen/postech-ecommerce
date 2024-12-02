@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.postech</groupId>
-    <artifactId>gateway-postech</artifactId>
+    <artifactId>ms-gateway</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>gateway-postech</name>
-    <description>gateway-postech</description>
+    <name>ms-gateway</name>
+    <description>ms-gateway</description>
     <url/>
     <licenses>
         <license/>

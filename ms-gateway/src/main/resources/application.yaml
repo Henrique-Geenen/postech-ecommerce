@@ -1,6 +1,6 @@
 spring:
   application:
-    name: gateway-postech
+    name: ms-gateway
   cloud:
     gateway:
       mvc:
@@ -8,31 +8,31 @@ spring:
           FilterSupplier: com.postech.gatewaypostech.infra.security.config.FilterSupplierConfig
         routes:
           - id: login-route
-            uri: http://localhost:8080 # Backend rodando na porta 8080
+            uri: http://localhost:8081 # Backend rodando na porta 8080
             predicates:
               - Path=/login/**  # Caminho esperado no Gateway
 
           - id: client-route
-            uri: http://localhost:8080 # Backend rodando na porta 8080
+            uri: http://localhost:8081 # Backend rodando na porta 8080
             predicates:
               - Path=/clientes/**  # Caminho esperado no Gateway
             filters:
               - addDynamicRequestHeaderFuncTeste=X-my-header-from-configuration
 
           - id: produto-route
-            uri: http://localhost:8081 # Backend rodando na porta 8080
+            uri: http://localhost:8084 # Backend rodando na porta 8080
             predicates:
               - Path=/protudos  # Caminho esperado no Gateway
 
           - id: pedido-route
-            uri: http://localhost:8082
+            uri: http://localhost:8083
             predicates:
               - Path=/pedidos/**
             filters:
               - addDynamicRequestHeaderFuncTeste=X-my-header-from-configuration
 
           - id: logistica-route
-            uri: http://localhost:8083
+            uri: http://localhost:8082
             predicates:
               - Path=/logistica/**
   threads:
@@ -43,11 +43,11 @@ logging:
     org.springframework.cloud.gateway.server.mvc: DEBUG  # Nível de log detalhado para o Gateway
     org.springframework.web: DEBUG           # Logs adicionais para requisições HTTP
 server:
-  port: 8089
+  port: 8080
 app:
   jwt:
-    secret: 12345678
+    secret: ${JWT_SECRET}
   login:
-    url: http://localhost:8080
+    url: http://localhost:8081
     path: /login
 

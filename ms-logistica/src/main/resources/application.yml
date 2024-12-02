@@ -1,13 +1,13 @@
 server:
-  port: 8083
+  port: 8082
 
 spring:
   application:
     name: ms-logistica
   datasource:
-    url: jdbc:postgresql://localhost:5432/logistica
-    username: postgres
-    password: postgres
+    url: jdbc:postgresql://${POSTGRES_URL}/${POSTGRES_DATABASE}
+    username: ${POSTGRES_USERNAME}
+    password: ${POSTGRES_PASSWORD}
   jpa:
     defer-datasource-initialization: true
     database-platform: org.hibernate.dialect.PostgreSQLDialect
@@ -19,7 +19,7 @@ spring:
 
 services:
   pedido-service:
-    url: http://localhost:8082
+    url: http://localhost:8083
   open-route-service:
     url: https://api.openrouteservice.org
-    api-key: ''
+    api-key: ${OPENROUTE_API_KEY}

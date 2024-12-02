@@ -1,21 +1,17 @@
 FROM maven:3.9.8-amazoncorretto-21 AS build
-COPY /src /ms-pedido/src
+COPY /src /ms-produto/src
 COPY /pom.xml /ms-pedido
-WORKDIR /ms-pedido
+WORKDIR /ms-produto
 RUN mvn clean package -DskipTests
 
 FROM amazoncorretto:21
 ARG JAR_FILE=target/*.jar
-COPY --from=build /ms-pedido/${JAR_FILE} /ms-pedido/ms-pedido.jar
-EXPOSE 8083
+COPY --from=build /ms-produto/${JAR_FILE} /ms-produto/ms-produto.jar
+EXPOSE 8084
 
 ENV POSTGRES_URL=''
 ENV POSTGRES_USERNAME=''
 ENV POSTGRES_PASSWORD=''
 ENV POSTGRES_DATABASE=''
-ENV RABBITMQ_HOST:''
-ENV RABBITMQ_PORT:''
-ENV RABBITMQ_USER:''
-ENV RABBITMQ_PASSWORD:''
 
 ENTRYPOINT ["java","-jar","/ms-pedido/api-pedido.jar"]

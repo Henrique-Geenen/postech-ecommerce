@@ -1,23 +1,21 @@
+server:
+  port: 8084
+
 spring:
   application:
-    name: ms-cliente
-  profiles:
-    active: "local"
+    name: ms-produto
   datasource:
     url: jdbc:postgresql://${POSTGRES_URL}/${POSTGRES_DATABASE}
     username: ${POSTGRES_USERNAME}
     password: ${POSTGRES_PASSWORD}
-
   jpa:
+    defer-datasource-initialization: true
     hibernate:
       dialect: org.hibernate.dialect.PostgreSQLDialect
-      ddl-auto: update
-    show-sql: false
-
-api:
-  security:
-    token:
-      expiration-hours: 2
-      secret: ${JWT_SECRET}
-server:
-  port: 8081
+      ddl-auto: create-drop
+  sql:
+    init:
+      mode: always
+  batch:
+    jdbc:
+      initialize-schema: always

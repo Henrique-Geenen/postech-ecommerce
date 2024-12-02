@@ -15,5 +15,9 @@ COPY --from=builder /builder/extracted/spring-boot-loader/ ./
 COPY --from=builder /builder/extracted/snapshot-dependencies/ ./
 COPY --from=builder /builder/extracted/application/ ./
 
+EXPOSE 8080
+
+ENV JWT_SECRET=''
+
 RUN java -XX:ArchiveClassesAtExit=application.jsa -Dspring.context.exit=onRefresh -jar application.jar
 ENTRYPOINT ["java", "-XX:SharedArchiveFile=application.jsa", "-jar", "application.jar"]

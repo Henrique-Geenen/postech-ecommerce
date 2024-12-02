@@ -7,7 +7,7 @@ RUN mvn clean package -DskipTests
 FROM openjdk:17-jdk-slim
 ARG JAR_FILE=target/*.jar
 COPY --from=build /ms-cliente/${JAR_FILE} /ms-cliente/ms-cliente.jar
-EXPOSE 8080
+EXPOSE 8081
 
 ENV POSTGRES_URL=''
 ENV POSTGRES_USERNAME=''

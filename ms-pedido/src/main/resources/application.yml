@@ -1,5 +1,5 @@
 server:
-  port: 8082
+  port: 8083
 
 spring:
   sql:
@@ -10,9 +10,9 @@ spring:
     name: ms-pedido
 
   datasource:
-    url: ${DB_URL}
-    username: ${DB_USER}
-    password: ${DB_PASSWORD}
+    url: jdbc:postgresql://${POSTGRES_URL}/${POSTGRES_DATABASE}
+    username: ${POSTGRES_USERNAME}
+    password: ${POSTGRES_PASSWORD}
 
   jpa:
     defer-datasource-initialization: true
@@ -35,7 +35,7 @@ spring:
     virtual-host: ${RABBITMQ_USER}
 
 cliente:
-  url: http://localhost:8080
+  url: http://localhost:8081
 
 produto:
-  url: http://localhost:8081
+  url: http://localhost:8084
