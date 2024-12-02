@@ -1,0 +1,56 @@
+version: '3.9'
+
+services:
+  postgres:
+    image: 'postgres:latest'
+    environment:
+      POSTGRES_DB: 'postech'
+      POSTGRES_PASSWORD: 'postgres'
+      POSTGRES_USER: 'postgres'
+    ports:
+      - '5432:5432'
+
+  service-a:
+    image: service-a:latest
+    container_name: service-a
+    build:
+      context: ./service-a
+    ports:
+      - "8080:8080"
+    environment:
+      - SERVICE_B_URL=http://service-b:8081
+      - SERVICE_C_URL=http://service-c:8082
+    networks:
+      - app-network
+    depends_on:
+      -
+
+  service-b:
+    image: service-b:latest
+    container_name: service-b
+    build:
+      context: ./service-b
+    ports:
+      - "8081:8081"
+    environment:
+      - SERVICE_A_URL=http://service-a:8080
+      - SERVICE_C_URL=http://service-c:8082
+    networks:
+      - app-network
+
+  service-c:
+    image: service-c:latest
+    container_name: service-c
+    build:
+      context: ./service-c
+    ports:
+      - "8082:8082"
+    environment:
+      - SERVICE_A_URL=http://service-a:8080
+      - SERVICE_B_URL=http://service-b:8081
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

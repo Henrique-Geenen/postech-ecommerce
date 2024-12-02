@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>Entregador.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@33478a2f_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@33478a2f_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package com.techchallenge4.ms_logistica.domain;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@33478a2f_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@33478a2f_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@33478a2f_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@33478a2f_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.techchallenge4.ms_logistica.enums.EstadoEnum;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@33478a2f_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@33478a2f_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import jakarta.persistence.Entity;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@33478a2f_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@33478a2f_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import jakarta.persistence.GeneratedValue;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@33478a2f_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@33478a2f_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import jakarta.persistence.GenerationType;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@33478a2f_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@33478a2f_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import jakarta.persistence.Id;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@33478a2f_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@33478a2f_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import lombok.AllArgsConstructor;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@33478a2f_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@33478a2f_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import lombok.Builder;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@33478a2f_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@33478a2f_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import lombok.EqualsAndHashCode;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@33478a2f_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@33478a2f_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import lombok.Getter;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@33478a2f_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@33478a2f_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import lombok.NoArgsConstructor;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@33478a2f_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@33478a2f_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import lombok.Setter;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@33478a2f_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@33478a2f_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@33478a2f_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@33478a2f_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>@Getter</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@33478a2f_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@33478a2f_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>@Setter</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@33478a2f_17'/>
+17
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@33478a2f_17'>11</a>
+<span>
+
+1. toString : replaced return value with &#34;&#34; for com/techchallenge4/ms_logistica/domain/Entregador$EntregadorBuilder::toString &rarr; NO_COVERAGE<br/>
+
+2. cep : replaced return value with null for com/techchallenge4/ms_logistica/domain/Entregador$EntregadorBuilder::cep &rarr; KILLED<br/>
+
+3. cpf : replaced return value with null for com/techchallenge4/ms_logistica/domain/Entregador$EntregadorBuilder::cpf &rarr; KILLED<br/>
+
+4. disponivel : replaced return value with null for com/techchallenge4/ms_logistica/domain/Entregador$EntregadorBuilder::disponivel &rarr; KILLED<br/>
+
+5. nome : replaced return value with null for com/techchallenge4/ms_logistica/domain/Entregador$EntregadorBuilder::nome &rarr; KILLED<br/>
+
+6. build : replaced return value with null for com/techchallenge4/ms_logistica/domain/Entregador$EntregadorBuilder::build &rarr; KILLED<br/>
+
+7. builder : replaced return value with null for com/techchallenge4/ms_logistica/domain/Entregador::builder &rarr; KILLED<br/>
+
+8. capacidade : replaced return value with null for com/techchallenge4/ms_logistica/domain/Entregador$EntregadorBuilder::capacidade &rarr; KILLED<br/>
+
+9. contato : replaced return value with null for com/techchallenge4/ms_logistica/domain/Entregador$EntregadorBuilder::contato &rarr; KILLED<br/>
+
+10. estado : replaced return value with null for com/techchallenge4/ms_logistica/domain/Entregador$EntregadorBuilder::estado &rarr; KILLED<br/>
+
+11. id : replaced return value with null for com/techchallenge4/ms_logistica/domain/Entregador$EntregadorBuilder::id &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>@Builder</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@33478a2f_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@33478a2f_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>@NoArgsConstructor</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@33478a2f_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@33478a2f_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>@AllArgsConstructor</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@33478a2f_20'/>
+20
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@33478a2f_20'>17</a>
+<span>
+
+1. equals : negated conditional &rarr; NO_COVERAGE<br/>
+
+2. equals : negated conditional &rarr; NO_COVERAGE<br/>
+
+3. equals : negated conditional &rarr; NO_COVERAGE<br/>
+
+4. canEqual : replaced boolean return with true for com/techchallenge4/ms_logistica/domain/Entregador::canEqual &rarr; NO_COVERAGE<br/>
+
+5. hashCode : Replaced integer multiplication with division &rarr; NO_COVERAGE<br/>
+
+6. equals : negated conditional &rarr; NO_COVERAGE<br/>
+
+7. equals : negated conditional &rarr; NO_COVERAGE<br/>
+
+8. equals : negated conditional &rarr; NO_COVERAGE<br/>
+
+9. hashCode : Replaced integer addition with subtraction &rarr; NO_COVERAGE<br/>
+
+10. hashCode : replaced int return with 0 for com/techchallenge4/ms_logistica/domain/Entregador::hashCode &rarr; NO_COVERAGE<br/>
+
+11. equals : replaced boolean return with true for com/techchallenge4/ms_logistica/domain/Entregador::equals &rarr; NO_COVERAGE<br/>
+
+12. canEqual : replaced boolean return with false for com/techchallenge4/ms_logistica/domain/Entregador::canEqual &rarr; NO_COVERAGE<br/>
+
+13. equals : replaced boolean return with false for com/techchallenge4/ms_logistica/domain/Entregador::equals &rarr; NO_COVERAGE<br/>
+
+14. equals : replaced boolean return with true for com/techchallenge4/ms_logistica/domain/Entregador::equals &rarr; NO_COVERAGE<br/>
+
+15. equals : replaced boolean return with false for com/techchallenge4/ms_logistica/domain/Entregador::equals &rarr; NO_COVERAGE<br/>
+
+16. equals : replaced boolean return with true for com/techchallenge4/ms_logistica/domain/Entregador::equals &rarr; NO_COVERAGE<br/>
+
+17. hashCode : negated conditional &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>@EqualsAndHashCode(of = &#34;id&#34;)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@33478a2f_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@33478a2f_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>@Entity(name = &#34;entregador&#34;)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@33478a2f_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@33478a2f_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public class Entregador {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@33478a2f_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@33478a2f_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@33478a2f_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@33478a2f_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Id</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@33478a2f_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@33478a2f_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @GeneratedValue(strategy = GenerationType.IDENTITY)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@33478a2f_26'/>
+26
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@33478a2f_26'>1</a>
+<span>
+
+1. getId : replaced Long return value with 0L for com/techchallenge4/ms_logistica/domain/Entregador::getId &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>    private Long id;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@33478a2f_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@33478a2f_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@33478a2f_28'/>
+28
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@33478a2f_28'>1</a>
+<span>
+
+1. getNome : replaced return value with &#34;&#34; for com/techchallenge4/ms_logistica/domain/Entregador::getNome &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    private String nome;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@33478a2f_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@33478a2f_29'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@33478a2f_30'/>
+30
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@33478a2f_30'>1</a>
+<span>
+
+1. getCpf : replaced return value with &#34;&#34; for com/techchallenge4/ms_logistica/domain/Entregador::getCpf &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    private String cpf;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@33478a2f_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@33478a2f_31'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@33478a2f_32'/>
+32
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@33478a2f_32'>1</a>
+<span>
+
+1. getContato : replaced return value with &#34;&#34; for com/techchallenge4/ms_logistica/domain/Entregador::getContato &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    private String contato;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@33478a2f_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@33478a2f_33'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@33478a2f_34'/>
+34
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@33478a2f_34'>1</a>
+<span>
+
+1. getCapacidade : replaced Integer return value with 0 for com/techchallenge4/ms_logistica/domain/Entregador::getCapacidade &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    private Integer capacidade;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@33478a2f_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@33478a2f_35'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@33478a2f_36'/>
+36
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@33478a2f_36'>1</a>
+<span>
+
+1. getCep : replaced return value with &#34;&#34; for com/techchallenge4/ms_logistica/domain/Entregador::getCep &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    private String cep;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@33478a2f_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@33478a2f_37'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@33478a2f_38'/>
+38
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@33478a2f_38'>1</a>
+<span>
+
+1. getEstado : replaced return value with null for com/techchallenge4/ms_logistica/domain/Entregador::getEstado &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    private EstadoEnum estado;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@33478a2f_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@33478a2f_39'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@33478a2f_40'/>
+40
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@33478a2f_40'>2</a>
+<span>
+
+1. getDisponivel : replaced Boolean return with True for com/techchallenge4/ms_logistica/domain/Entregador::getDisponivel &rarr; KILLED<br/>
+
+2. getDisponivel : replaced Boolean return with False for com/techchallenge4/ms_logistica/domain/Entregador::getDisponivel &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    private Boolean disponivel;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@33478a2f_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@33478a2f_41'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@33478a2f_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@33478a2f_42'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@33478a2f_17'>17</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@33478a2f_17'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>cep<br/><b>Killed by : </b>com.techchallenge4.ms_logistica.unit.service.v1.impl.EntregadorServiceImplTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.service.v1.impl.EntregadorServiceImplTest]/[nested-class:FindByEstadoAndDisponibilidade]/[method:shouldReturnSuccessfully()]</span></span> replaced return value with null for com/techchallenge4/ms_logistica/domain/Entregador$EntregadorBuilder::cep &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>cpf<br/><b>Killed by : </b>com.techchallenge4.ms_logistica.unit.service.v1.impl.EntregadorServiceImplTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.service.v1.impl.EntregadorServiceImplTest]/[nested-class:FindByEstadoAndDisponibilidade]/[method:shouldReturnSuccessfully()]</span></span> replaced return value with null for com/techchallenge4/ms_logistica/domain/Entregador$EntregadorBuilder::cpf &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>disponivel<br/><b>Killed by : </b>com.techchallenge4.ms_logistica.unit.service.v1.impl.EntregadorServiceImplTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.service.v1.impl.EntregadorServiceImplTest]/[nested-class:FindByEstadoAndDisponibilidade]/[method:shouldReturnSuccessfully()]</span></span> replaced return value with null for com/techchallenge4/ms_logistica/domain/Entregador$EntregadorBuilder::disponivel &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>nome<br/><b>Killed by : </b>com.techchallenge4.ms_logistica.unit.service.v1.impl.EntregadorServiceImplTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.service.v1.impl.EntregadorServiceImplTest]/[nested-class:FindByEstadoAndDisponibilidade]/[method:shouldReturnSuccessfully()]</span></span> replaced return value with null for com/techchallenge4/ms_logistica/domain/Entregador$EntregadorBuilder::nome &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>build<br/><b>Killed by : </b>com.techchallenge4.ms_logistica.unit.service.v1.impl.EntregadorServiceImplTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.service.v1.impl.EntregadorServiceImplTest]/[nested-class:FindByEstadoAndDisponibilidade]/[method:shouldReturnSuccessfully()]</span></span> replaced return value with null for com/techchallenge4/ms_logistica/domain/Entregador$EntregadorBuilder::build &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>builder<br/><b>Killed by : </b>com.techchallenge4.ms_logistica.unit.service.v1.impl.EntregadorServiceImplTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.service.v1.impl.EntregadorServiceImplTest]/[nested-class:FindByEstadoAndDisponibilidade]/[method:shouldReturnSuccessfully()]</span></span> replaced return value with null for com/techchallenge4/ms_logistica/domain/Entregador::builder &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>capacidade<br/><b>Killed by : </b>com.techchallenge4.ms_logistica.unit.service.v1.impl.EntregadorServiceImplTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.service.v1.impl.EntregadorServiceImplTest]/[nested-class:FindByEstadoAndDisponibilidade]/[method:shouldReturnSuccessfully()]</span></span> replaced return value with null for com/techchallenge4/ms_logistica/domain/Entregador$EntregadorBuilder::capacidade &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>contato<br/><b>Killed by : </b>com.techchallenge4.ms_logistica.unit.service.v1.impl.EntregadorServiceImplTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.service.v1.impl.EntregadorServiceImplTest]/[nested-class:FindByEstadoAndDisponibilidade]/[method:shouldReturnSuccessfully()]</span></span> replaced return value with null for com/techchallenge4/ms_logistica/domain/Entregador$EntregadorBuilder::contato &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>9.<span><b>9</b><br/><b>Location : </b>estado<br/><b>Killed by : </b>com.techchallenge4.ms_logistica.unit.service.v1.impl.EntregadorServiceImplTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.service.v1.impl.EntregadorServiceImplTest]/[nested-class:FindByEstadoAndDisponibilidade]/[method:shouldReturnSuccessfully()]</span></span> replaced return value with null for com/techchallenge4/ms_logistica/domain/Entregador$EntregadorBuilder::estado &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>10.<span><b>10</b><br/><b>Location : </b>id<br/><b>Killed by : </b>com.techchallenge4.ms_logistica.unit.service.v1.impl.EntregadorServiceImplTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.service.v1.impl.EntregadorServiceImplTest]/[nested-class:FindByEstadoAndDisponibilidade]/[method:shouldReturnSuccessfully()]</span></span> replaced return value with null for com/techchallenge4/ms_logistica/domain/Entregador$EntregadorBuilder::id &rarr; KILLED</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>11.<span><b>11</b><br/><b>Location : </b>toString<br/><b>Killed by : </b>none</span></span> replaced return value with &#34;&#34; for com/techchallenge4/ms_logistica/domain/Entregador$EntregadorBuilder::toString &rarr; NO_COVERAGE</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@33478a2f_20'>20</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@33478a2f_20'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>canEqual<br/><b>Killed by : </b>none</span></span> replaced boolean return with true for com/techchallenge4/ms_logistica/domain/Entregador::canEqual &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b>none</span></span> Replaced integer multiplication with division &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>9.<span><b>9</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b>none</span></span> Replaced integer addition with subtraction &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>10.<span><b>10</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b>none</span></span> replaced int return with 0 for com/techchallenge4/ms_logistica/domain/Entregador::hashCode &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>11.<span><b>11</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>none</span></span> replaced boolean return with true for com/techchallenge4/ms_logistica/domain/Entregador::equals &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>12.<span><b>12</b><br/><b>Location : </b>canEqual<br/><b>Killed by : </b>none</span></span> replaced boolean return with false for com/techchallenge4/ms_logistica/domain/Entregador::canEqual &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>13.<span><b>13</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>none</span></span> replaced boolean return with false for com/techchallenge4/ms_logistica/domain/Entregador::equals &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>14.<span><b>14</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>none</span></span> replaced boolean return with true for com/techchallenge4/ms_logistica/domain/Entregador::equals &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>15.<span><b>15</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>none</span></span> replaced boolean return with false for com/techchallenge4/ms_logistica/domain/Entregador::equals &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>16.<span><b>16</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>none</span></span> replaced boolean return with true for com/techchallenge4/ms_logistica/domain/Entregador::equals &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>17.<span><b>17</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@33478a2f_26'>26</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@33478a2f_26'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getId<br/><b>Killed by : </b>none</span></span> replaced Long return value with 0L for com/techchallenge4/ms_logistica/domain/Entregador::getId &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=com.techchallenge4.ms_logistica.domain.Entregador,-method=getId,-methodDesc=()Ljava/lang/Long;],-indexes=[5],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=com.techchallenge4.ms_logistica.domain.Entregador,-method=getId,-methodDesc=()Ljava/lang/Long;],-indexes=[5],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=com.techchallenge4.ms_logistica.domain.Entregador,-method=getId,-methodDesc=()Ljava/lang/Long;],-indexes=[5],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>com.techchallenge4.ms_logistica.unit.mapper.OpenRouteMapperTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.mapper.OpenRouteMapperTest]/[nested-class:ToOptimizeRequest]/[method:shouldMapVehicle()]</li> <li>com.techchallenge4.ms_logistica.unit.mapper.EntregadorMapperTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.mapper.EntregadorMapperTest]/[nested-class:ToResponse]/[method:shouldReturnSuccessfully()]</li> <li>com.techchallenge4.ms_logistica.unit.service.v1.impl.EntregadorServiceImplTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.service.v1.impl.EntregadorServiceImplTest]/[nested-class:FindById]/[method:shouldReturnSuccessfully()]</li> <li>com.techchallenge4.ms_logistica.unit.service.v1.impl.EntregadorServiceImplTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.service.v1.impl.EntregadorServiceImplTest]/[nested-class:FindAll]/[method:shouldReturnSuccessfully()]</li> <li>com.techchallenge4.ms_logistica.unit.mapper.EntregadorMapperTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.mapper.EntregadorMapperTest]/[nested-class:ToResponseList]/[method:shouldReturnSuccessfully()]</li> <li>com.techchallenge4.ms_logistica.unit.service.v1.impl.EntregadorServiceImplTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.service.v1.impl.EntregadorServiceImplTest]/[nested-class:Create]/[method:shouldReturnSuccessfully()]</li> <li>com.techchallenge4.ms_logistica.unit.mapper.RotaMapperTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.mapper.RotaMapperTest]/[nested-class:ToRotaResponse]/[method:shouldReturnSuccessfully()]</li> <li>com.techchallenge4.ms_logistica.unit.mapper.RotaMapperTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.mapper.RotaMapperTest]/[nested-class:ToRota]/[method:shouldReturnSuccessfully()]</li> <li>com.techchallenge4.ms_logistica.unit.service.v1.impl.OpenRouteServiceImplTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.service.v1.impl.OpenRouteServiceImplTest]/[nested-class:GetOptimizeRoute]/[method:shouldReturnSuccessfully()]</li> <li>com.techchallenge4.ms_logistica.unit.service.v1.impl.EntregadorServiceImplTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.service.v1.impl.EntregadorServiceImplTest]/[nested-class:Update]/[method:shouldReturnSuccessfully()]</li> <li>com.techchallenge4.ms_logistica.unit.mapper.OpenRouteMapperTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.mapper.OpenRouteMapperTest]/[nested-class:ToOptimizeRequest]/[method:shouldReturnSuccessfully()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@33478a2f_28'>28</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@33478a2f_28'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getNome<br/><b>Killed by : </b>com.techchallenge4.ms_logistica.unit.mapper.EntregadorMapperTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.mapper.EntregadorMapperTest]/[nested-class:UpdateEntityFromRequest]/[method:shouldReturnSuccessfully()]</span></span> replaced return value with &#34;&#34; for com/techchallenge4/ms_logistica/domain/Entregador::getNome &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@33478a2f_30'>30</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@33478a2f_30'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getCpf<br/><b>Killed by : </b>com.techchallenge4.ms_logistica.unit.mapper.EntregadorMapperTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.mapper.EntregadorMapperTest]/[nested-class:UpdateEntityFromRequest]/[method:shouldReturnSuccessfully()]</span></span> replaced return value with &#34;&#34; for com/techchallenge4/ms_logistica/domain/Entregador::getCpf &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@33478a2f_32'>32</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@33478a2f_32'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getContato<br/><b>Killed by : </b>com.techchallenge4.ms_logistica.unit.mapper.EntregadorMapperTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.mapper.EntregadorMapperTest]/[nested-class:UpdateEntityFromRequest]/[method:shouldReturnSuccessfully()]</span></span> replaced return value with &#34;&#34; for com/techchallenge4/ms_logistica/domain/Entregador::getContato &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@33478a2f_34'>34</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@33478a2f_34'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getCapacidade<br/><b>Killed by : </b>com.techchallenge4.ms_logistica.unit.mapper.EntregadorMapperTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.mapper.EntregadorMapperTest]/[nested-class:UpdateEntityFromRequest]/[method:shouldReturnSuccessfully()]</span></span> replaced Integer return value with 0 for com/techchallenge4/ms_logistica/domain/Entregador::getCapacidade &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@33478a2f_36'>36</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@33478a2f_36'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getCep<br/><b>Killed by : </b>com.techchallenge4.ms_logistica.unit.mapper.EntregadorMapperTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.mapper.EntregadorMapperTest]/[nested-class:ToEntity]/[method:shouldReturnSuccessfully()]</span></span> replaced return value with &#34;&#34; for com/techchallenge4/ms_logistica/domain/Entregador::getCep &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@33478a2f_38'>38</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@33478a2f_38'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getEstado<br/><b>Killed by : </b>com.techchallenge4.ms_logistica.unit.mapper.EntregadorMapperTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.mapper.EntregadorMapperTest]/[nested-class:ToEntity]/[method:shouldMapCepToEstado()]</span></span> replaced return value with null for com/techchallenge4/ms_logistica/domain/Entregador::getEstado &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@33478a2f_40'>40</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@33478a2f_40'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getDisponivel<br/><b>Killed by : </b>com.techchallenge4.ms_logistica.unit.service.v1.impl.EntregadorServiceImplTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.service.v1.impl.EntregadorServiceImplTest]/[nested-class:BloquearEntregador]/[method:shouldReturnSuccessfully()]</span></span> replaced Boolean return with True for com/techchallenge4/ms_logistica/domain/Entregador::getDisponivel &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getDisponivel<br/><b>Killed by : </b>com.techchallenge4.ms_logistica.unit.service.v1.impl.EntregadorServiceImplTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.service.v1.impl.EntregadorServiceImplTest]/[nested-class:DesbloquearEntregador]/[method:shouldReturnSuccessfully()]</span></span> replaced Boolean return with False for com/techchallenge4/ms_logistica/domain/Entregador::getDisponivel &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY</li>
+
+<li class='mutator'>EMPTY_RETURNS</li>
+
+<li class='mutator'>FALSE_RETURNS</li>
+
+<li class='mutator'>INCREMENTS</li>
+
+<li class='mutator'>INVERT_NEGS</li>
+
+<li class='mutator'>MATH</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS</li>
+
+<li class='mutator'>NULL_RETURNS</li>
+
+<li class='mutator'>PRIMITIVE_RETURNS</li>
+
+<li class='mutator'>TRUE_RETURNS</li>
+
+<li class='mutator'>VOID_METHOD_CALLS</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>com.techchallenge4.ms_logistica.unit.mapper.EntregadorMapperTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.mapper.EntregadorMapperTest]/[nested-class:UpdateEntityFromRequest]/[method:shouldReturnSuccessfully()] (0 ms)</li><li>com.techchallenge4.ms_logistica.unit.mapper.EntregadorMapperTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.mapper.EntregadorMapperTest]/[nested-class:ToResponse]/[method:shouldReturnSuccessfully()] (0 ms)</li><li>com.techchallenge4.ms_logistica.unit.mapper.EntregadorMapperTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.mapper.EntregadorMapperTest]/[nested-class:ToEntity]/[method:shouldReturnSuccessfully()] (0 ms)</li><li>com.techchallenge4.ms_logistica.unit.service.v1.impl.EntregadorServiceImplTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.service.v1.impl.EntregadorServiceImplTest]/[nested-class:FindById]/[method:shouldReturnSuccessfully()] (1 ms)</li><li>com.techchallenge4.ms_logistica.unit.service.v1.impl.EntregadorServiceImplTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.service.v1.impl.EntregadorServiceImplTest]/[nested-class:FindAll]/[method:shouldReturnSuccessfully()] (1 ms)</li><li>com.techchallenge4.ms_logistica.unit.mapper.EntregadorMapperTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.mapper.EntregadorMapperTest]/[nested-class:ToResponseList]/[method:shouldReturnSuccessfully()] (2 ms)</li><li>com.techchallenge4.ms_logistica.unit.service.v1.impl.EntregadorServiceImplTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.service.v1.impl.EntregadorServiceImplTest]/[nested-class:Create]/[method:shouldReturnSuccessfully()] (3 ms)</li><li>com.techchallenge4.ms_logistica.unit.mapper.RotaMapperTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.mapper.RotaMapperTest]/[nested-class:ToRotaResponse]/[method:shouldReturnSuccessfully()] (0 ms)</li><li>com.techchallenge4.ms_logistica.unit.service.v1.impl.EntregadorServiceImplTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.service.v1.impl.EntregadorServiceImplTest]/[nested-class:Update]/[method:shouldReturnSuccessfully()] (22 ms)</li><li>com.techchallenge4.ms_logistica.unit.service.v1.impl.EntregadorServiceImplTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.service.v1.impl.EntregadorServiceImplTest]/[nested-class:FindByEstadoAndDisponibilidade]/[method:shouldReturnSuccessfully()] (1 ms)</li><li>com.techchallenge4.ms_logistica.unit.service.v1.impl.EntregadorServiceImplTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.service.v1.impl.EntregadorServiceImplTest]/[nested-class:BloquearEntregador]/[method:shouldReturnSuccessfully()] (1 ms)</li><li>com.techchallenge4.ms_logistica.unit.service.v1.impl.EntregadorServiceImplTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.service.v1.impl.EntregadorServiceImplTest]/[nested-class:DesbloquearEntregador]/[method:shouldReturnSuccessfully()] (1 ms)</li><li>com.techchallenge4.ms_logistica.unit.mapper.OpenRouteMapperTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.mapper.OpenRouteMapperTest]/[nested-class:ToOptimizeRequest]/[method:shouldMapVehicle()] (0 ms)</li><li>com.techchallenge4.ms_logistica.unit.mapper.EntregadorMapperTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.mapper.EntregadorMapperTest]/[nested-class:ToEntity]/[method:shouldMapCepToEstado()] (0 ms)</li><li>com.techchallenge4.ms_logistica.unit.domain.RotaTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.domain.RotaTest]/[nested-class:GetParadaByPedidoId]/[method:shouldReturnEmptyWhenPedidoIdNotFound()] (0 ms)</li><li>com.techchallenge4.ms_logistica.unit.mapper.EntregadorMapperTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.mapper.EntregadorMapperTest]/[nested-class:ToEntity]/[method:shouldMapDefaultDisponivelTrue()] (0 ms)</li><li>com.techchallenge4.ms_logistica.unit.mapper.OpenRouteMapperTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.mapper.OpenRouteMapperTest]/[nested-class:ToDirectionsRequestFromRota]/[method:shouldMapCoordinates()] (0 ms)</li><li>com.techchallenge4.ms_logistica.unit.mapper.OpenRouteMapperTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.mapper.OpenRouteMapperTest]/[nested-class:ToDirectionsRequestFromRastreamentoAndParada]/[method:shouldMapCoordinates()] (0 ms)</li><li>com.techchallenge4.ms_logistica.unit.service.v1.impl.RotaServiceImplTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.service.v1.impl.RotaServiceImplTest]/[nested-class:FindEntityById]/[method:shouldReturnSuccessfully()] (2 ms)</li><li>com.techchallenge4.ms_logistica.unit.domain.RotaTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.domain.RotaTest]/[nested-class:IsRotaFinalizada]/[method:shouldReturnTrueWhenAllParadasEntregues()] (1 ms)</li><li>com.techchallenge4.ms_logistica.unit.service.v1.impl.RastreamentoServiceImplTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.service.v1.impl.RastreamentoServiceImplTest]/[nested-class:FindDirectionsByPedidoId]/[method:shouldThrowResourceNotFoundExceptionWhenRotaNotFound()] (3 ms)</li><li>com.techchallenge4.ms_logistica.unit.service.v1.impl.RastreamentoServiceImplTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.service.v1.impl.RastreamentoServiceImplTest]/[nested-class:FindDirectionsByEntregadorId]/[method:shouldReturnSuccessfully()] (3 ms)</li><li>com.techchallenge4.ms_logistica.unit.mapper.RotaMapperTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.mapper.RotaMapperTest]/[nested-class:ToRota]/[method:shouldMapIdNull()] (0 ms)</li><li>com.techchallenge4.ms_logistica.unit.mapper.RotaMapperTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.mapper.RotaMapperTest]/[nested-class:ToRota]/[method:shouldMapStatusConstant()] (0 ms)</li><li>com.techchallenge4.ms_logistica.unit.service.v1.impl.RotaServiceImplTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.service.v1.impl.RotaServiceImplTest]/[nested-class:FindByStatus]/[method:shouldReturnSuccessfully()] (3 ms)</li><li>com.techchallenge4.ms_logistica.unit.mapper.RotaMapperTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.mapper.RotaMapperTest]/[nested-class:ToRota]/[method:shouldMapParadas()] (0 ms)</li><li>com.techchallenge4.ms_logistica.unit.service.v1.impl.RastreamentoServiceImplTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.service.v1.impl.RastreamentoServiceImplTest]/[nested-class:FindDirectionsByPedidoId]/[method:shouldThrowResourceNotFoundExceptionWhenRastreamentoNotFound()] (3 ms)</li><li>com.techchallenge4.ms_logistica.unit.mapper.RastreamentoMapperTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.mapper.RastreamentoMapperTest]/[nested-class:UpdateUltimaPosicao]/[method:shouldReturnSuccessfully()] (0 ms)</li><li>com.techchallenge4.ms_logistica.unit.mapper.RastreamentoMapperTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.mapper.RastreamentoMapperTest]/[nested-class:ToEntity]/[method:shouldReturnSuccessfully()] (0 ms)</li><li>com.techchallenge4.ms_logistica.unit.service.v1.impl.RotaServiceImplTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.service.v1.impl.RotaServiceImplTest]/[nested-class:FindEntityByPedidoId]/[method:shouldReturnSuccessfully()] (4 ms)</li><li>com.techchallenge4.ms_logistica.unit.mapper.RastreamentoMapperTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.mapper.RastreamentoMapperTest]/[nested-class:ToEntity]/[method:shouldMapUltimaLatitude()] (0 ms)</li><li>com.techchallenge4.ms_logistica.unit.service.v1.impl.RotaServiceImplTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.service.v1.impl.RotaServiceImplTest]/[nested-class:FinalizarRota]/[method:shouldExecuteSuccessfully()] (3 ms)</li><li>com.techchallenge4.ms_logistica.unit.mapper.RastreamentoMapperTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.mapper.RastreamentoMapperTest]/[nested-class:UpdateUltimaPosicao]/[method:shouldIgnoreRota()] (0 ms)</li><li>com.techchallenge4.ms_logistica.unit.mapper.RastreamentoMapperTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.mapper.RastreamentoMapperTest]/[nested-class:ToResponse]/[method:shouldMapRotaId()] (0 ms)</li><li>com.techchallenge4.ms_logistica.unit.service.v1.impl.RastreamentoServiceImplTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.service.v1.impl.RastreamentoServiceImplTest]/[nested-class:FindDirectionsByPedidoId]/[method:shouldThrowResourceNotFoundExceptionWhenParadaNotFound()] (2 ms)</li><li>com.techchallenge4.ms_logistica.unit.domain.RotaTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.domain.RotaTest]/[nested-class:GetParadaByPedidoId]/[method:shouldReturnSuccessfully()] (3 ms)</li><li>com.techchallenge4.ms_logistica.unit.mapper.RastreamentoMapperTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.mapper.RastreamentoMapperTest]/[nested-class:ToResponse]/[method:shouldReturnSuccessfully()] (0 ms)</li><li>com.techchallenge4.ms_logistica.unit.mapper.OpenRouteMapperTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.mapper.OpenRouteMapperTest]/[nested-class:ToDirectionsRequestFromRota]/[method:shouldReturnSuccessfully()] (2 ms)</li><li>com.techchallenge4.ms_logistica.unit.service.v1.impl.RotaServiceImplTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.service.v1.impl.RotaServiceImplTest]/[nested-class:OptimizeAndSaveRoute]/[method:shouldExecuteSuccessfully()] (4 ms)</li><li>com.techchallenge4.ms_logistica.unit.service.v1.impl.EntregasServiceImplTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.service.v1.impl.EntregasServiceImplTest]/[nested-class:FinalizarPedidos]/[method:shouldNotExecuteRotasPendentes()] (4 ms)</li><li>com.techchallenge4.ms_logistica.unit.service.v1.impl.OpenRouteServiceImplTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.service.v1.impl.OpenRouteServiceImplTest]/[nested-class:GetDirectionsByRota]/[method:shouldReturnSuccessfully()] (2 ms)</li><li>com.techchallenge4.ms_logistica.unit.service.v1.impl.RotaServiceImplTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.service.v1.impl.RotaServiceImplTest]/[nested-class:FindEntitiesByEntregadorId]/[method:shouldReturnSuccessfully()] (5 ms)</li><li>com.techchallenge4.ms_logistica.unit.mapper.RastreamentoMapperTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.mapper.RastreamentoMapperTest]/[nested-class:ToEntity]/[method:shouldMapUltimaLongitude()] (3 ms)</li><li>com.techchallenge4.ms_logistica.unit.service.v1.impl.RastreamentoServiceImplTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.service.v1.impl.RastreamentoServiceImplTest]/[nested-class:FindDirectionsByPedidoId]/[method:shouldReturnSuccessfully()] (5 ms)</li><li>com.techchallenge4.ms_logistica.unit.service.v1.impl.EntregasServiceImplTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.service.v1.impl.EntregasServiceImplTest]/[nested-class:FinalizarPedidos]/[method:shouldExecuteRotasFinalizadasSuccessfully()] (7 ms)</li><li>com.techchallenge4.ms_logistica.unit.service.v1.impl.EntregasServiceImplTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.service.v1.impl.EntregasServiceImplTest]/[nested-class:ProcessarPedidosPorEstado]/[method:shouldExecuteSuccessfully()] (12 ms)</li><li>com.techchallenge4.ms_logistica.unit.service.v1.impl.OpenRouteServiceImplTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.service.v1.impl.OpenRouteServiceImplTest]/[nested-class:GetDirectionsByRastreamentoAndParada]/[method:shouldReturnSuccessfully()] (7 ms)</li><li>com.techchallenge4.ms_logistica.unit.service.v1.impl.RotaServiceImplTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.service.v1.impl.RotaServiceImplTest]/[nested-class:FindByEntregadorId]/[method:shouldReturnSuccessfully()] (4 ms)</li><li>com.techchallenge4.ms_logistica.unit.mapper.OpenRouteMapperTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.mapper.OpenRouteMapperTest]/[nested-class:ToDirectionsRequestFromRastreamentoAndParada]/[method:shouldReturnSuccessfully()] (9 ms)</li><li>com.techchallenge4.ms_logistica.unit.service.v1.impl.RotaServiceImplTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.service.v1.impl.RotaServiceImplTest]/[nested-class:FindByPedidoId]/[method:shouldReturnSuccessfully()] (11 ms)</li><li>com.techchallenge4.ms_logistica.unit.mapper.RotaMapperTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.mapper.RotaMapperTest]/[nested-class:ToRota]/[method:shouldReturnSuccessfully()] (15 ms)</li><li>com.techchallenge4.ms_logistica.unit.service.v1.impl.RastreamentoServiceImplTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.service.v1.impl.RastreamentoServiceImplTest]/[nested-class:CreateOrUpdateRastreamento]/[method:shouldReturnSuccessfully()] (13 ms)</li><li>com.techchallenge4.ms_logistica.unit.service.v1.impl.OpenRouteServiceImplTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.service.v1.impl.OpenRouteServiceImplTest]/[nested-class:GetOptimizeRoute]/[method:shouldReturnSuccessfully()] (20 ms)</li><li>com.techchallenge4.ms_logistica.unit.mapper.OpenRouteMapperTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.mapper.OpenRouteMapperTest]/[nested-class:ToOptimizeRequest]/[method:shouldReturnSuccessfully()] (25 ms)</li><li>com.techchallenge4.ms_logistica.unit.domain.RotaTest.[engine:junit-jupiter]/[class:com.techchallenge4.ms_logistica.unit.domain.RotaTest]/[nested-class:IsRotaFinalizada]/[method:shouldReturnFalseWhenAnyParadaNotEntregue()] (30 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='https://pitest.org'>PIT</a> 1.17.1
+
+</body>
+</html>

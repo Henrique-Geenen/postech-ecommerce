@@ -1,0 +1,1 @@
+org.springframework.cloud.gateway.server.mvc.filter.FilterSupplier=com.postech.gatewaypostech.infra.security.filter.InsertUserIdHeaderBeforeRedirecting.FilterSupplier

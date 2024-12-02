@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/ms-cliente
+    username: user
+    password: admin
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    open-in-view: false
+
+logging:
+  level:
+    org.springframework.web: INFO
+    br.com.cliente: DEBUG
+
+api:
+  security:
+    token:
+      expiration-hours: 2
+      secret: ${JWT_SECRET:12345678}
