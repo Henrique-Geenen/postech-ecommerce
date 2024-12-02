@@ -1,9 +1,9 @@
 
-docker-build:
+build:
 	docker compose build
 
-docker-start: docker-build
+up: build
 	docker compose up -d
 
-docker-stop:
+down:
 	docker compose down
