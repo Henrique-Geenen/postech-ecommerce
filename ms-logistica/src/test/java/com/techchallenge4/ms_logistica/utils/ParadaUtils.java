@@ -7,6 +7,7 @@ import com.techchallenge4.ms_logistica.enums.PedidoStatusEnum;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 @NoArgsConstructor
@@ -44,7 +45,7 @@ public class ParadaUtils {
     public static List<Parada> buildParadaList(int numberOfMocks) {
         return IntStream.range(0, numberOfMocks)
                 .mapToObj(i -> buildParada((long) i))
-                .toList();
+                .collect(Collectors.toList());
     }
 
     public static Parada buildParada() {

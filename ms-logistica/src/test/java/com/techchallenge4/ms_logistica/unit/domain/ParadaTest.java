@@ -28,7 +28,7 @@ class ParadaTest {
         void shouldReturnTrueWhenCancelado() {
             // Given
             var parada = ParadaUtils.buildParada();
-            parada.setStatus(PedidoStatusEnum.CANCELADO);
+            parada.setStatus(PedidoStatusEnum.CANCELADA);
 
             // When
             var result = parada.isEntregaFinalizada();

@@ -42,7 +42,7 @@ public class Parada {
     private String observacao;
 
     public boolean isEntregaFinalizada() {
-        return nonNull(this.status) && (this.status.equals(PedidoStatusEnum.ENTREGUE) || this.status.equals(PedidoStatusEnum.CANCELADO));
+        return nonNull(this.status) && (this.status.equals(PedidoStatusEnum.ENTREGUE) || this.status.equals(PedidoStatusEnum.CANCELADA));
     }
 
 }

@@ -80,7 +80,7 @@ class OpenRouteMapperTest {
             // Then
             assertNotNull(vehicles);
             assertEquals(1, vehicles.size());
-            assertEquals(entregador.getId().toString(), vehicles.getFirst().getId());
+            assertEquals(entregador.getId(), vehicles.getFirst().getId());
         }
 
         @Test
@@ -112,7 +112,7 @@ class OpenRouteMapperTest {
             // Then
             assertNotNull(jobs);
             assertEquals(pedidoResponses.size(), jobs.size());
-            assertEquals(pedidoResponses.getFirst().id().toString(), jobs.getFirst().getId());
+            assertEquals(pedidoResponses.getFirst().id(), jobs.getFirst().getId());
         }
 
         @Test
