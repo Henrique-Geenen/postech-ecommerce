@@ -192,6 +192,37 @@ class RotaServiceImplTest {
     }
 
     @Nested
+    class FindEntityByEntregadorIdAndStatus {
+        @Test
+        void shouldReturnSuccessfully() {
+            // Given
+            var entregadorId = 1L;
+            var status = RotaStatusEnum.EM_ANDAMENTO;
+            var rota = RotaUtils.buildRota();
+            when(repository.findByEntregadorIdAndStatus(entregadorId, status)).thenReturn(Optional.of(rota));
+
+            // When
+            var result = service.findEntityByEntregadorIdAndStatus(entregadorId, status);
+
+            // Then
+            assertNotNull(result);
+            assertEquals(rota, result);
+            verify(repository, times(1)).findByEntregadorIdAndStatus(entregadorId, status);
+        }
+        @Test
+        void shouldThrowResourceNotFoundExceptionWhenRotaNotFound() {
+            // Given
+            var entregadorId = 1L;
+            var status = RotaStatusEnum.EM_ANDAMENTO;
+            when(repository.findByEntregadorIdAndStatus(entregadorId, status)).thenReturn(Optional.empty());
+
+            // When & Then
+            assertThrows(ResourceNotFoundException.class, () -> service.findEntityByEntregadorIdAndStatus(entregadorId, status));
+            verify(repository, times(1)).findByEntregadorIdAndStatus(entregadorId, status);
+        }
+    }
+
+    @Nested
     class FindEntitiesByEntregadorId {
         @Test
         void shouldReturnSuccessfully() {

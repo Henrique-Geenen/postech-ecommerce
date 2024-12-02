@@ -15,6 +15,7 @@ import org.mapstruct.Mapping;
 import org.mapstruct.Named;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Stream;
 
 @Mapper(config = MappingConfig.class)
@@ -46,15 +47,33 @@ public interface OpenRouteMapper {
                 .toList();
     }
 
-    @Mapping(target = "coordinates", source = "rota", qualifiedByName = "mapCoordinates")
-    DirectionsRequest toDirectionsRequestFromRota(Rota rota);
+    @Mapping(target = "coordinates", expression = "java(mapCoordinates(rastreamento, rota))")
+    DirectionsRequest toDirectionsRequestFromRastreamentoAndRota(Rastreamento rastreamento, Rota rota);
 
-    @Named("mapCoordinates")
-    default List<List<Double>> mapCoordinates(Rota rota) {
+    default List<List<Double>> mapCoordinates(Rastreamento rastreamento, Rota rota) {
+        return Optional.ofNullable(rastreamento)
+                .map(rt -> mapCoordinatesFromRastreamento(rastreamento, rota))
+                .orElse(mapCoordinatesFromOrigem(rota));
+    }
+
+    private static List<List<Double>> mapCoordinatesFromRastreamento(Rastreamento rastreamento, Rota rota) {
+        return Stream.concat(
+                Stream.of(List.of(rastreamento.getUltimaLongitude(), rastreamento.getUltimaLatitude())),
+                getCoordinatesFromRota(rota)
+        ).toList();
+    }
+
+    private static List<List<Double>> mapCoordinatesFromOrigem(Rota rota) {
         return Stream.concat(
                 Stream.of(List.of(rota.getOrigem().getLongitude(), rota.getOrigem().getLatitude())),
-                rota.getParadas().stream().map(parada -> List.of(parada.getLongitude(), parada.getLatitude()))
+                getCoordinatesFromRota(rota)
         ).toList();
+    }
+
+    private static Stream<List<Double>> getCoordinatesFromRota(Rota rota) {
+        return rota.getParadas().stream()
+                .filter(Parada::isNotEntregaFinalizada)
+                .map(parada -> List.of(parada.getLongitude(), parada.getLatitude()));
     }
 
     @Mapping(target = "coordinates", expression = "java(mapCoordinates(rastreamento, parada))")

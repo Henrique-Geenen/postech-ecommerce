@@ -1,4 +1,3 @@
-
 # Postech E-commerce
 
 Postech E-commerce é uma aplicação de e-commerce baseada em microsserviços. O projeto utiliza Spring Boot para os serviços de backend e PostgreSQL como banco de dados. Os serviços se comunicam entre si usando RabbitMQ.

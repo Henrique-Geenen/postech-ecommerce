@@ -65,6 +65,12 @@ public class RotaServiceImpl implements RotaService {
     }
 
     @Override
+    public Rota findEntityByEntregadorIdAndStatus(Long entregadorId, RotaStatusEnum status) {
+        return repository.findByEntregadorIdAndStatus(entregadorId, status)
+                .orElseThrow(() -> new ResourceNotFoundException(String.format("Rota não encontrada pelo entregadorId %s e status %s", entregadorId, status)));
+    }
+
+    @Override
     public List<Rota> findEntitiesByEntregadorId(Long entregadorId) {
         return getByEntregadorId(entregadorId);
     }

@@ -127,10 +127,11 @@ class OpenRouteMapperTest {
         @Test
         void shouldReturnSuccessfully() {
             // Given
+            var rastreamento = RastreamentoUtil.buildRastreamento();
             var rota = RotaUtils.buildRota();
 
             // When
-            var request = mapper.toDirectionsRequestFromRota(rota);
+            var request = mapper.toDirectionsRequestFromRastreamentoAndRota(rastreamento, rota);
 
             // Then
             assertNotNull(request);
@@ -138,31 +139,17 @@ class OpenRouteMapperTest {
         }
 
         @Test
-        void shouldReturnNullWhenRotaIsNull() {
-            // When
-            var request = mapper.toDirectionsRequestFromRota(null);
-
-            // Then
-            assertNull(request);
-        }
-
-        @Test
         void shouldMapCoordinates() {
             // Given
+            var rastreamento = RastreamentoUtil.buildRastreamento();
             var rota = RotaUtils.buildRota();
 
             // When
-            var coordinates = mapper.mapCoordinates(rota);
+            var coordinates = mapper.mapCoordinates(rastreamento, rota);
 
             // Then
             assertNotNull(coordinates);
             assertEquals(rota.getParadas().size() + 1, coordinates.size());
-        }
-
-        @Test
-        void shouldReturnNullWhenRotaIsNullInMapCoordinates() {
-            // When & Then
-            assertThrows(NullPointerException.class, () -> mapper.mapCoordinates(null));
         }
     }
 
@@ -221,15 +208,6 @@ class OpenRouteMapperTest {
 
             // When & Then
             assertThrows(NullPointerException.class, () -> mapper.mapCoordinates(null, parada));
-        }
-
-        @Test
-        void shouldReturnNullWhenParadaIsNullInMapCoordinates() {
-            // Given
-            var rastreamento = RastreamentoUtil.buildRastreamento();
-
-            // When & Then
-            assertThrows(NullPointerException.class, () -> mapper.mapCoordinates(rastreamento, null));
         }
     }
 }

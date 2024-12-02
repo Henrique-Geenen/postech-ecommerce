@@ -21,6 +21,8 @@ public interface RotaService {
 
     Rota findEntityByPedidoId(Long pedidoId);
 
+    Rota findEntityByEntregadorIdAndStatus(Long entregadorId, RotaStatusEnum rotaStatusEnum);
+
     List<Rota> findEntitiesByEntregadorId(Long entregadorId);
 
     List<Rota> findByStatus(RotaStatusEnum rotaStatusEnum);

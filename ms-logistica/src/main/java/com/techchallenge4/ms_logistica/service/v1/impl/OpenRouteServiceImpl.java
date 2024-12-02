@@ -32,9 +32,9 @@ public class OpenRouteServiceImpl implements OpenRouteService {
     }
 
     @Override
-    public DirectionsResponse getDirectionsByRota(Rota rota) {
+    public DirectionsResponse getDirectionsByRastreamentoAndRota(Rastreamento rastreamento, Rota rota) {
         rota.getParadas().sort(Comparator.comparing(Parada::getSequencia));
-        return client.getDirections(DEFAULT_PROFILE, mapper.toDirectionsRequestFromRota(rota));
+        return client.getDirections(DEFAULT_PROFILE, mapper.toDirectionsRequestFromRastreamentoAndRota(rastreamento, rota));
     }
 
     @Override

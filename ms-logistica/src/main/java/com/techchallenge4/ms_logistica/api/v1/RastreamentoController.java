@@ -13,8 +13,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/rastreamento")
@@ -28,7 +26,7 @@ public class RastreamentoController {
     }
 
     @GetMapping("/entregador/{entregadorId}")
-    public ResponseEntity<List<DirectionsResponse>> getDirectionsByEntregadorId(@PathVariable Long entregadorId) {
+    public ResponseEntity<DirectionsResponse> getDirectionsByEntregadorId(@PathVariable Long entregadorId) {
         return ResponseEntity.ok(service.findDirectionsByEntregadorId(entregadorId));
     }
 

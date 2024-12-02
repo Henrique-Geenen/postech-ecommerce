@@ -58,7 +58,7 @@ class RastreamentoControllerTest extends AbstractControllerTest {
         void shouldReturnSuccessfully() throws Exception {
             // Given
             var entregadorId = 1L;
-            var response = List.of(OpenRouteUtils.buildDirectionsResponse());
+            var response = OpenRouteUtils.buildDirectionsResponse();
 
             when(service.findDirectionsByEntregadorId(entregadorId)).thenReturn(response);
 

@@ -1,5 +1,6 @@
 package com.techchallenge4.ms_logistica.unit.service.v1.impl;
 
+import com.techchallenge4.ms_logistica.enums.RotaStatusEnum;
 import com.techchallenge4.ms_logistica.exception.ResourceNotFoundException;
 import com.techchallenge4.ms_logistica.mapper.RastreamentoMapper;
 import com.techchallenge4.ms_logistica.repository.RastreamentoRepository;
@@ -16,7 +17,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -68,33 +68,36 @@ class RastreamentoServiceImplTest {
         void shouldReturnSuccessfully() {
             // Given
             var entregadorId = 1L;
+            var rastreamento = RastreamentoUtil.buildRastreamento();
             var rota = RotaUtils.buildRota();
             var directionsResponse = OpenRouteUtils.buildDirectionsResponse();
 
-            when(rotaService.findEntitiesByEntregadorId(entregadorId)).thenReturn(List.of(rota));
-            when(openRouteService.getDirectionsByRota(rota)).thenReturn(directionsResponse);
+            when(rotaService.findEntityByEntregadorIdAndStatus(entregadorId, RotaStatusEnum.EM_ANDAMENTO)).thenReturn(rota);
+            when(repository.findByRota(rota)).thenReturn(Optional.of(rastreamento));
+            when(openRouteService.getDirectionsByRastreamentoAndRota(rastreamento, rota)).thenReturn(directionsResponse);
 
             // When
             var result = service.findDirectionsByEntregadorId(entregadorId);
 
             // Then
             assertNotNull(result);
-            assertEquals(List.of(directionsResponse), result);
+            assertEquals(directionsResponse, result);
 
-            verify(rotaService, times(1)).findEntitiesByEntregadorId(entregadorId);
-            verify(openRouteService, times(1)).getDirectionsByRota(rota);
+            verify(rotaService, times(1)).findEntityByEntregadorIdAndStatus(entregadorId, RotaStatusEnum.EM_ANDAMENTO);
+            verify(repository, times(1)).findByRota(rota);
+            verify(openRouteService, times(1)).getDirectionsByRastreamentoAndRota(rastreamento, rota);
         }
         @Test
         void shouldThrowResourceNotFoundException() {
             // Given
             var entregadorId = 1L;
 
-            when(rotaService.findEntitiesByEntregadorId(entregadorId)).thenThrow(new ResourceNotFoundException("not found"));
+            when(rotaService.findEntityByEntregadorIdAndStatus(entregadorId, RotaStatusEnum.EM_ANDAMENTO)).thenThrow(new ResourceNotFoundException("not found"));
 
             // When & Then
             assertThrows(ResourceNotFoundException.class, () -> service.findDirectionsByEntregadorId(entregadorId));
 
-            verify(rotaService, times(1)).findEntitiesByEntregadorId(entregadorId);
+            verify(rotaService, times(1)).findEntityByEntregadorIdAndStatus(entregadorId, RotaStatusEnum.EM_ANDAMENTO);
         }
     }
 

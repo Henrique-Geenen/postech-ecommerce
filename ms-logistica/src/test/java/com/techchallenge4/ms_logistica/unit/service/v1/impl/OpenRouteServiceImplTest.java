@@ -68,19 +68,20 @@ class OpenRouteServiceImplTest {
         @Test
         void shouldReturnSuccessfully() {
             // Given
+            var raspreamento = RastreamentoUtil.buildRastreamento();
             var rota = RotaUtils.buildRota();
             var response = OpenRouteUtils.buildDirectionsResponse();
 
             when(client.getDirections(anyString(), any(DirectionsRequest.class))).thenReturn(response);
 
             // When
-            var result = service.getDirectionsByRota(rota);
+            var result = service.getDirectionsByRastreamentoAndRota(raspreamento, rota);
 
             // Then
             assertNotNull(result);
             assertEquals(response, result);
 
-            verify(mapper, times(1)).toDirectionsRequestFromRota(rota);
+            verify(mapper, times(1)).toDirectionsRequestFromRastreamentoAndRota(raspreamento, rota);
             verify(client, times(1)).getDirections(anyString(), any(DirectionsRequest.class));
         }
     }

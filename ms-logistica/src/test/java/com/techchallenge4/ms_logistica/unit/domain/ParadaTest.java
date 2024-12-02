@@ -62,4 +62,56 @@ class ParadaTest {
         }
     }
 
+    @Nested
+    class IsNotEntregaFinalizada {
+        @Test
+        void shouldReturnFalseWhenEntregue() {
+            // Given
+            var parada = ParadaUtils.buildParada();
+            parada.setStatus(PedidoStatusEnum.ENTREGUE);
+
+            // When
+            var result = parada.isNotEntregaFinalizada();
+
+            // Then
+            assertFalse(result);
+        }
+        @Test
+        void shouldReturnFalseWhenCancelado() {
+            // Given
+            var parada = ParadaUtils.buildParada();
+            parada.setStatus(PedidoStatusEnum.CANCELADA);
+
+            // When
+            var result = parada.isNotEntregaFinalizada();
+
+            // Then
+            assertFalse(result);
+        }
+        @Test
+        void shouldReturnTrueWhenOtherStatus() {
+            // Given
+            var parada = ParadaUtils.buildParada();
+            parada.setStatus(PedidoStatusEnum.PENDENTE);
+
+            // When
+            var result = parada.isNotEntregaFinalizada();
+
+            // Then
+            assertTrue(result);
+        }
+        @Test
+        void shouldReturnTrueWhenNullStatus() {
+            // Given
+            var parada = ParadaUtils.buildParada();
+            parada.setStatus(null);
+
+            // When
+            var result = parada.isNotEntregaFinalizada();
+
+            // Then
+            assertTrue(result);
+        }
+    }
+
 }

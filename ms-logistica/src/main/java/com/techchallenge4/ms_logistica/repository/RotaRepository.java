@@ -20,4 +20,6 @@ public interface RotaRepository extends JpaRepository<Rota, Long> {
 
     List<Rota> findAllByStatus(RotaStatusEnum status);
 
+    Optional<Rota> findByEntregadorIdAndStatus(Long entregadorId, RotaStatusEnum status);
+
 }

@@ -45,4 +45,8 @@ public class Parada {
         return nonNull(this.status) && (this.status.equals(PedidoStatusEnum.ENTREGUE) || this.status.equals(PedidoStatusEnum.CANCELADA));
     }
 
+    public boolean isNotEntregaFinalizada() {
+        return !isEntregaFinalizada();
+    }
+
 }

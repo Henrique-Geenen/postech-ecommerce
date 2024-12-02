@@ -15,7 +15,7 @@ public interface OpenRouteService {
 
     OptimizeResponse getOptimizeRoute(List<PedidoResponse> pedidos, Entregador entregador, Origem origem);
 
-    DirectionsResponse getDirectionsByRota(Rota rota);
+    DirectionsResponse getDirectionsByRastreamentoAndRota(Rastreamento rastreamento, Rota rota);
 
     DirectionsResponse getDirectionsByRastreamentoAndParada(Rastreamento rastreamento, Parada parada);
 

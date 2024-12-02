@@ -6,6 +6,7 @@ import com.techchallenge4.ms_logistica.client.response.DirectionsResponse;
 import com.techchallenge4.ms_logistica.domain.Parada;
 import com.techchallenge4.ms_logistica.domain.Rastreamento;
 import com.techchallenge4.ms_logistica.domain.Rota;
+import com.techchallenge4.ms_logistica.enums.RotaStatusEnum;
 import com.techchallenge4.ms_logistica.exception.ResourceNotFoundException;
 import com.techchallenge4.ms_logistica.mapper.RastreamentoMapper;
 import com.techchallenge4.ms_logistica.repository.RastreamentoRepository;
@@ -14,8 +15,6 @@ import com.techchallenge4.ms_logistica.service.v1.RastreamentoService;
 import com.techchallenge4.ms_logistica.service.v1.RotaService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -32,10 +31,9 @@ public class RastreamentoServiceImpl implements RastreamentoService {
     }
 
     @Override
-    public List<DirectionsResponse> findDirectionsByEntregadorId(Long entregadorId) {
-        return rotaService.findEntitiesByEntregadorId(entregadorId).stream()
-                .map(openRouteService::getDirectionsByRota)
-                .toList();
+    public DirectionsResponse findDirectionsByEntregadorId(Long entregadorId) {
+        var rota = rotaService.findEntityByEntregadorIdAndStatus(entregadorId, RotaStatusEnum.EM_ANDAMENTO);
+        return openRouteService.getDirectionsByRastreamentoAndRota(getRastreamentoByRota(rota), rota);
     }
 
     @Override
@@ -49,7 +47,7 @@ public class RastreamentoServiceImpl implements RastreamentoService {
 
     private Rastreamento getRastreamentoByRota(Rota rota) {
         return repository.findByRota(rota)
-                .orElseThrow(() -> new ResourceNotFoundException("Rastreamento não encontrado pelo pedidoId"));
+                .orElseThrow(() -> new ResourceNotFoundException("Rastreamento não encontrado pela rota"));
     }
 
     private static Parada getParadaByPedidoId(Long pedidoId, Rota rota) {
