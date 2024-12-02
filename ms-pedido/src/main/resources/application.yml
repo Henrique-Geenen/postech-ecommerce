@@ -18,7 +18,7 @@ spring:
     defer-datasource-initialization: true
     hibernate:
       dialect: org.hibernate.dialect.PostgreSQLDialect
-      ddl-auto: create-drop
+      ddl-auto: update
 
   rabbitmq:
     host: ${RABBITMQ_HOST}
@@ -32,7 +32,6 @@ spring:
           max-attempts: 10
           initial-interval: 5000
           multiplier: 2
-    virtual-host: ${RABBITMQ_USER}
 
 cliente:
   url: http://localhost:8081

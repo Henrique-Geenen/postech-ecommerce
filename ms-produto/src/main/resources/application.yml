@@ -12,7 +12,7 @@ spring:
     defer-datasource-initialization: true
     hibernate:
       dialect: org.hibernate.dialect.PostgreSQLDialect
-      ddl-auto: create-drop
+      ddl-auto: update
   sql:
     init:
       mode: always

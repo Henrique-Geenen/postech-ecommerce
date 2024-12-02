@@ -1,4 +1,4 @@
-FROM bellsoft/liberica-openjre-debian:17-cds AS builder
+FROM maven:3.9.8-amazoncorretto-21 AS builder
 WORKDIR /builder
 
 ARG JAR_FILE=target/*.jar
@@ -7,7 +7,7 @@ COPY ${JAR_FILE} application.jar
 
 RUN java -Djarmode=tools -jar application.jar extract --layers --destination extracted
 
-FROM bellsoft/liberica-openjre-debian:17-cds
+FROM amazoncorretto:21
 WORKDIR /application
 
 COPY --from=builder /builder/extracted/dependencies/ ./

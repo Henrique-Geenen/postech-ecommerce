@@ -1,6 +1,6 @@
 FROM maven:3.9.8-amazoncorretto-21 AS build
 COPY /src /ms-produto/src
-COPY /pom.xml /ms-pedido
+COPY /pom.xml /ms-produto
 WORKDIR /ms-produto
 RUN mvn clean package -DskipTests
 
@@ -14,4 +14,4 @@ ENV POSTGRES_USERNAME=''
 ENV POSTGRES_PASSWORD=''
 ENV POSTGRES_DATABASE=''
 
-ENTRYPOINT ["java","-jar","/ms-pedido/api-pedido.jar"]
+ENTRYPOINT ["java","-jar","/ms-produto/ms-produto.jar"]

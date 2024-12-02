@@ -8,21 +8,21 @@ spring:
           FilterSupplier: com.postech.gatewaypostech.infra.security.config.FilterSupplierConfig
         routes:
           - id: login-route
-            uri: http://localhost:8081 # Backend rodando na porta 8080
+            uri: http://localhost:8081
             predicates:
-              - Path=/login/**  # Caminho esperado no Gateway
+              - Path=/login/**
 
           - id: client-route
-            uri: http://localhost:8081 # Backend rodando na porta 8080
+            uri: http://localhost:8081
             predicates:
-              - Path=/clientes/**  # Caminho esperado no Gateway
+              - Path=/clientes/**
             filters:
               - addDynamicRequestHeaderFuncTeste=X-my-header-from-configuration
 
           - id: produto-route
-            uri: http://localhost:8084 # Backend rodando na porta 8080
+            uri: http://localhost:8084
             predicates:
-              - Path=/protudos  # Caminho esperado no Gateway
+              - Path=/produtos/**
 
           - id: pedido-route
             uri: http://localhost:8083
