@@ -69,10 +69,10 @@ Estes comandos iniciarão todos os microsserviços junto com PostgreSQL e Rabbit
 
 ### Bancos de Dados
 
-- **PostgreSQL Cliente**: [localhost:5432](localhost:5432)
-- **PostgreSQL Logística**: [localhost:5433](localhost:5433)
-- **PostgreSQL Pedido**: [localhost:5434](localhost:5434)
-- **PostgreSQL Produto**: [localhost:5435](localhost:5435)
+- **PostgreSQL Cliente**: [http://localhost:5432](http://localhost:5432)
+- **PostgreSQL Logística**: [http://localhost:5433](http://localhost:5433)
+- **PostgreSQL Pedido**: [http://localhost:5434](http://localhost:5434)
+- **PostgreSQL Produto**: [http://localhost:5435](http://localhost:5435)
 
 ### Inicialização dos Bancos de Dados
 
