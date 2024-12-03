@@ -1,20 +1,80 @@
 services:
-  postgresdb:
+  postgres-cliente:
     build:
-        context: ./postgres
-    container_name: postgresdb
+        context: ./postgres-cliente
+    container_name: postgres_cliente
     env_file:
       - .env
     environment:
-      POSTGRES_DB: ${POSTGRES_DATABASE}
+      POSTGRES_DB: ${POSTGRES_DATABASE_CLIENTE}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       POSTGRES_USER: ${POSTGRES_USERNAME}
     ports:
       - 5432:5432
     networks:
-      - netpostech
+      - postechnetwork
     healthcheck:
-      test: [ "CMD-SHELL", "pg_isready -d $${POSTGRES_DATABASE} -U $${POSTGRES_USERNAME}"]
+      test: [ "CMD-SHELL", "pg_isready -d $${POSTGRES_DATABASE_CLIENTE} -U $${POSTGRES_USERNAME}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  postgres-logistica:
+    build:
+      context: ./postgres-logistica
+    container_name: postgres_logistica
+    env_file:
+      - .env
+    environment:
+      POSTGRES_DB: ${POSTGRES_DATABASE_LOGISTICA}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_USER: ${POSTGRES_USERNAME}
+    ports:
+      - 5433:5433
+    networks:
+      - postechnetwork
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -d $${POSTGRES_DATABASE_LOGISTICA} -U $${POSTGRES_USERNAME}" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  postgres-pedido:
+    build:
+      context: ./postgres-pedido
+    container_name: postgres_pedido
+    env_file:
+      - .env
+    environment:
+      POSTGRES_DB: ${POSTGRES_DATABASE_PEDIDO}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_USER: ${POSTGRES_USERNAME}
+    ports:
+      - 5434:5434
+    networks:
+      - postechnetwork
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -d $${POSTGRES_DATABASE_PEDIDO} -U $${POSTGRES_USERNAME}" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  postgres-produto:
+    build:
+      context: ./postgres-produto
+    container_name: postgres_produto
+    env_file:
+      - .env
+    environment:
+      POSTGRES_DB: ${POSTGRES_DATABASE_PRODUTO}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_USER: ${POSTGRES_USERNAME}
+    ports:
+      - 5435:5435
+    networks:
+      - postechnetwork
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -d $${POSTGRES_DATABASE_PRODUTO} -U $${POSTGRES_USERNAME}" ]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -29,7 +89,7 @@ services:
       - 5672:5672
       - 15672:15672
     networks:
-      - netpostech
+      - postechnetwork
     healthcheck:
       test: rabbitmq-diagnostics check_port_connectivity
       interval: 10s
@@ -43,18 +103,18 @@ services:
     env_file:
       - .env
     depends_on:
-      postgresdb:
+      postgres-cliente:
         condition: service_healthy
     ports:
       - 8081:8081
     environment:
-      POSTGRES_URL: ${POSTGRES_URL}
+      POSTGRES_URL: ${POSTGRES_URL_CLIENTE}
       POSTGRES_USERNAME: ${POSTGRES_USERNAME}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-      POSTGRES_DATABASE: ${POSTGRES_DATABASE}
+      POSTGRES_DATABASE: ${POSTGRES_DATABASE_CLIENTE}
       JWT_SECRET: ${JWT_SECRET}
     networks:
-      - netpostech
+      - postechnetwork
 
   ms-logistica:
     build:
@@ -63,19 +123,19 @@ services:
     env_file:
       - .env
     depends_on:
-      postgresdb:
+      postgres-logistica:
         condition: service_healthy
     ports:
       - 8082:8082
     environment:
-      POSTGRES_URL: ${POSTGRES_URL}
+      POSTGRES_URL: ${POSTGRES_URL_LOGISTICA}
       POSTGRES_USERNAME: ${POSTGRES_USERNAME}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-      POSTGRES_DATABASE: ${POSTGRES_DATABASE}
+      POSTGRES_DATABASE: ${POSTGRES_DATABASE_LOGISTICA}
       OPENROUTE_API_KEY: ${OPENROUTE_API_KEY}
       SERVICE_PEDIDO_URL: ${SERVICE_PEDIDO_URL}
     networks:
-      - netpostech
+      - postechnetwork
 
   ms-pedido:
     build:
@@ -84,17 +144,17 @@ services:
     env_file:
       - .env
     depends_on:
-      postgresdb:
+      postgres-pedido:
         condition: service_healthy
       rabbitmq:
         condition: service_healthy
     ports:
       - 8083:8083
     environment:
-      POSTGRES_URL: ${POSTGRES_URL}
+      POSTGRES_URL: ${POSTGRES_URL_PEDIDO}
       POSTGRES_USERNAME: ${POSTGRES_USERNAME}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-      POSTGRES_DATABASE: ${POSTGRES_DATABASE}
+      POSTGRES_DATABASE: ${POSTGRES_DATABASE_PEDIDO}
       RABBITMQ_HOST: ${RABBITMQ_HOST}
       RABBITMQ_PORT: ${RABBITMQ_PORT}
       RABBITMQ_USER: ${RABBITMQ_USERNAME}
@@ -102,7 +162,7 @@ services:
       SERVICE_CLIENTE_URL: ${SERVICE_CLIENTE_URL}
       SERVICE_PRODUTO_URL: ${SERVICE_PRODUTO_URL}
     networks:
-      - netpostech
+      - postechnetwork
 
   ms-produto:
     build:
@@ -111,17 +171,17 @@ services:
     env_file:
       - .env
     depends_on:
-      postgresdb:
+      postgres-produto:
         condition: service_healthy
     ports:
       - 8084:8084
     environment:
-      POSTGRES_URL: ${POSTGRES_URL}
+      POSTGRES_URL: ${POSTGRES_URL_PRODUTO}
       POSTGRES_USERNAME: ${POSTGRES_USERNAME}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-      POSTGRES_DATABASE: ${POSTGRES_DATABASE}
+      POSTGRES_DATABASE: ${POSTGRES_DATABASE_PRODUTO}
     networks:
-      - netpostech
+      - postechnetwork
 
   ms-gateway:
     build:
@@ -137,10 +197,10 @@ services:
     ports:
       - 8080:8080
     networks:
-      - netpostech
+      - postechnetwork
     environment:
       JWT_SECRET: ${JWT_SECRET}
 
 networks:
-  netpostech:
+  postechnetwork:
     driver: bridge
