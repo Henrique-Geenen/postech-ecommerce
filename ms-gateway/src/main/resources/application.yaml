@@ -31,6 +31,11 @@ spring:
             filters:
               - addDynamicRequestHeaderFuncTeste=X-my-header-from-configuration
 
+          - id: interno-pedido-route
+            uri: ${SERVICE_PEDIDO_URL}
+            predicates:
+              - Path=/interno/**
+
           - id: logistica-route
             uri: ${SERVICE_LOGISTICA_URL}
             predicates:
