@@ -1,0 +1,7 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5435/postech_ecommerce_produto
+    username: postgres
+    password: postgres
+
+resources-path: ms-produto/src/main/resources

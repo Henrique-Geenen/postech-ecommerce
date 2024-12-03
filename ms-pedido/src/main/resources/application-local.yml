@@ -1,5 +1,10 @@
 spring:
 
+  datasource:
+    url: jdbc:postgresql://localhost:5434/postech_ecommerce_pedido
+    username: postgres
+    password: postgres
+
   jpa:
     hibernate:
       ddl-auto: update
@@ -11,6 +16,8 @@ spring:
     username: user
     password: admin
 
-logging:
-  level:
-    br.com.pedido: DEBUG
+cliente:
+  url: http://localhost:8081
+
+produto:
+  url: http://localhost:8084

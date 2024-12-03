@@ -1,9 +1,0 @@
-spring:
-  datasource:
-    url: jdbc:postgresql://${DB_HOSTNAME}/logistica?autoReconnect=true
-    username: ${DB_USERNAME}
-    password: ${DB_PASSWORD}
-
-services:
-  open-route-service:
-    api-key: ${OPENROUTE_API_KEY}

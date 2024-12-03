@@ -33,6 +33,10 @@ spring:
           initial-interval: 5000
           multiplier: 2
 
+logging:
+  level:
+    br.com.pedido: DEBUG
+
 cliente:
   url: ${SERVICE_CLIENTE_URL}
 
