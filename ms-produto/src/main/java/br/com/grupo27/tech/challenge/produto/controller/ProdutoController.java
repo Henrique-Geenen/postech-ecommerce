@@ -5,6 +5,7 @@ import br.com.grupo27.tech.challenge.produto.model.dto.response.ProdutoResponseD
 import br.com.grupo27.tech.challenge.produto.service.ProdutoService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -25,6 +26,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import static org.springframework.http.HttpStatus.NO_CONTENT;
 
+@Slf4j
 @RestController
 @RequestMapping("/produtos")
 @RequiredArgsConstructor
@@ -88,6 +90,7 @@ public class ProdutoController {
             produtoService.uploadArquivoCsv(arquivo);
             produtoService.startJob();
         } catch (Exception e) {
+            log.info("Erro ao importar arquivo", e);
             return ResponseEntity.badRequest().body("Erro ao importar arquivo");
         }
 
