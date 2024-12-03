@@ -19,7 +19,7 @@ spring:
 
 services:
   pedido-service:
-    url: ${SERVICE_PEDIDO_URL}
+    url: ${SERVICE_PEDIDO_URL:http://localhost:8083}
   open-route-service:
     url: https://api.openrouteservice.org
     api-key: ${OPENROUTE_API_KEY}

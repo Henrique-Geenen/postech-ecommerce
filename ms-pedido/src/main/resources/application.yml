@@ -34,7 +34,7 @@ spring:
           multiplier: 2
 
 cliente:
-  url: ${SERVICE_CLIENTE_URL}
+  url: ${SERVICE_CLIENTE_URL:http://localhost:8081}
 
 produto:
-  url: ${SERVICE_PRODUTO_URL}
+  url: ${SERVICE_PRODUTO_URL:http://localhost:8084}

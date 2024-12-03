@@ -14,3 +14,9 @@ spring:
 logging:
   level:
     br.com.pedido: DEBUG
+
+cliente:
+  url: http://localhost:8081
+
+produto:
+  url: http://localhost:8084

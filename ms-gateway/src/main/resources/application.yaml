@@ -8,31 +8,36 @@ spring:
           FilterSupplier: com.postech.gatewaypostech.infra.security.config.FilterSupplierConfig
         routes:
           - id: login-route
-            uri: ${SERVICE_CLIENTE_URL}
+            uri: ${SERVICE_CLIENTE_URL:http://localhost:8081}
             predicates:
               - Path=/login/**
 
           - id: client-route
-            uri: ${SERVICE_CLIENTE_URL}
+            uri: ${SERVICE_CLIENTE_URL:http://localhost:8081}
             predicates:
               - Path=/clientes/**
             filters:
               - addDynamicRequestHeaderFuncTeste=X-my-header-from-configuration
 
           - id: produto-route
-            uri: ${SERVICE_PRODUTO_URL}
+            uri: ${SERVICE_PRODUTO_URL:http://localhost:8084}
             predicates:
               - Path=/produtos/**
 
           - id: pedido-route
-            uri: ${SERVICE_PEDIDO_URL}
+            uri: ${SERVICE_PEDIDO_URL:http://localhost:8083}
             predicates:
               - Path=/pedidos/**
             filters:
               - addDynamicRequestHeaderFuncTeste=X-my-header-from-configuration
 
+          - id: interno-pedido-route
+            uri: ${SERVICE_PEDIDO_URL:http://localhost:8083}
+            predicates:
+              - Path=/interno/**
+
           - id: logistica-route
-            uri: ${SERVICE_LOGISTICA_URL}
+            uri: ${SERVICE_LOGISTICA_URL:http://localhost:8082}
             predicates:
               - Path=/logistica/**
   threads:
@@ -46,8 +51,8 @@ server:
   port: 8080
 app:
   jwt:
-    secret: ${JWT_SECRET}
+    secret: ${JWT_SECRET:chave-super-secreta-12345678}
   login:
-    url: ${SERVICE_CLIENTE_URL}
+    url: ${SERVICE_CLIENTE_URL:http://localhost:8081}
     path: /login
 
