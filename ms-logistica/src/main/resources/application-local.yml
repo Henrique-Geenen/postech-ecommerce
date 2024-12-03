@@ -5,5 +5,7 @@ spring:
     password: postgres
 
 services:
+  pedido-service:
+    url: http://localhost:8083
   open-route-service:
     api-key: ${OPENROUTE_API_KEY} #valor do OPENROUTE_API_KEY está no arquivo .env
