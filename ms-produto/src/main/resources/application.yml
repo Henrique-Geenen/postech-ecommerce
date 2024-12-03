@@ -21,3 +21,5 @@ spring:
       enabled: false
     jdbc:
       initialize-schema: always
+
+resources-path: ${RESOURCES_PATH:/src/main/resources}

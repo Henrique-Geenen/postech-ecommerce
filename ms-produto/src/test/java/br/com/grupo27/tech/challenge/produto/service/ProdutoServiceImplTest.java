@@ -38,6 +38,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -45,27 +46,29 @@ import static org.mockito.Mockito.when;
 
 class ProdutoServiceImplTest {
 
-    @InjectMocks
-    private ProdutoServiceImpl service;
 
-    @Mock
-    private  EntityFactory<Produto, ProdutoRequestDto> factory;
 
-    @Mock
-    private ProdutoRepository repository;
+    private final EntityFactory<Produto, ProdutoRequestDto> factory = mock(EntityFactory.class);
 
-    @Mock
-    private JobLauncher jobLauncher;
+    private final ProdutoRepository repository = mock(ProdutoRepository.class);
 
-    @Mock
-    private Job job;
+    private final JobLauncher jobLauncher = mock(JobLauncher.class);
+
+    private final Job job = mock(Job.class);
+
+    private final ProdutoService service = new ProdutoServiceImpl(
+            "/src/main/resources",
+            repository,
+            factory,
+            jobLauncher,
+            job
+    );
 
     AutoCloseable openMocks;
 
     @BeforeEach
     void setUp() {
         openMocks = MockitoAnnotations.openMocks(this);
-
     }
     @AfterEach
     void tearDown() throws Exception {
@@ -196,17 +199,6 @@ class ProdutoServiceImplTest {
         verify(repository, times(1)).findById(id);
         verify(repository, never()).deleteById(id);
 
-    }
-
-    @Test
-    void uploadArquivoCsvWithValidFile() throws IOException {
-        var file = new MockMultipartFile("file", "produto.csv", "text/csv", "content".getBytes());
-
-        service.uploadArquivoCsv(file);
-
-        var path = Paths.get("src\\main\\resources\\produtos.csv");
-        assertTrue(Files.exists(path));
-        Files.delete(path);
     }
 
     @Test

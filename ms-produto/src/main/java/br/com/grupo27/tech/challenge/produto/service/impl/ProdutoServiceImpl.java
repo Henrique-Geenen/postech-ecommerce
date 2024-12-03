@@ -17,6 +17,7 @@ import org.springframework.batch.core.repository.JobExecutionAlreadyRunningExcep
 import org.springframework.batch.core.repository.JobInstanceAlreadyCompleteException;
 import org.springframework.batch.core.repository.JobRestartException;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.scheduling.annotation.Async;
@@ -34,13 +35,14 @@ import static br.com.grupo27.tech.challenge.produto.utils.ConstantesUtils.QUANTI
 @Service
 public class ProdutoServiceImpl implements ProdutoService {
 
-
+    private final String resourcesPath;
     private final ProdutoRepository repository;
     private final EntityFactory<Produto, ProdutoRequestDto> factory;
     private final JobLauncher jobLauncher;
     private final Job job;
 
-    public ProdutoServiceImpl(ProdutoRepository repository, EntityFactory<Produto, ProdutoRequestDto> factory, JobLauncher jobLauncher, @Qualifier("job") Job job) {
+    public ProdutoServiceImpl(@Value("${resources-path}") String resourcesPath, ProdutoRepository repository, EntityFactory<Produto, ProdutoRequestDto> factory, JobLauncher jobLauncher, @Qualifier("job") Job job) {
+        this.resourcesPath = resourcesPath;
         this.repository = repository;
         this.factory = factory;
         this.jobLauncher = jobLauncher;
@@ -102,7 +104,7 @@ public class ProdutoServiceImpl implements ProdutoService {
         }
 
         try{
-            var pastaDestino= new File("src\\main\\resources");
+            var pastaDestino = new File(resourcesPath);
             var diretorio = Paths.get(pastaDestino.toURI());
             var caminhoDoArquivo = diretorio.resolve("produtos.csv");
 

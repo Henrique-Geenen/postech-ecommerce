@@ -19,6 +19,7 @@ import org.springframework.batch.item.file.builder.FlatFileItemReaderBuilder;
 import org.springframework.batch.item.file.mapping.BeanWrapperFieldSetMapper;
 import org.springframework.batch.repeat.RepeatStatus;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.FileSystemResource;
@@ -36,8 +37,9 @@ public class ImpotacaoJobConfiguration {
 
     @Autowired
     private PlatformTransactionManager transactionManager;
-
-
+    
+    @Value("${resources-path}")
+    private String resourcesPath;
 
     @Bean
     public Job job(Step step,
@@ -73,7 +75,7 @@ public class ImpotacaoJobConfiguration {
 
         return new FlatFileItemReaderBuilder<Produto>()
                 .name("leitura-csv")
-                .resource(new FileSystemResource("src\\main\\resources\\produtos.csv"))
+                .resource(new FileSystemResource(resourcesPath + "/produtos.csv"))
                 .comments("--")
                 .linesToSkip(1)
                 .delimited()
@@ -131,8 +133,8 @@ public class ImpotacaoJobConfiguration {
     @Bean
     public Tasklet moverArquivos(){
         return (contribution, chunkContext) -> {
-            File pastaOrigem = new File("src\\main\\resources");
-            File pastaDestino = new File("src\\main\\resources\\arquivos-importados");
+            File pastaOrigem = new File(resourcesPath);
+            File pastaDestino = new File(resourcesPath + "/arquivos-importados");
 
             if(!pastaDestino.exists()){
                 pastaDestino.mkdirs();
