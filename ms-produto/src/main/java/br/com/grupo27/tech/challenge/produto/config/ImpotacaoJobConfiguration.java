@@ -1,10 +1,9 @@
 package br.com.grupo27.tech.challenge.produto.config;
 
-import br.com.grupo27.tech.challenge.produto.model.Categoria;
 import br.com.grupo27.tech.challenge.produto.model.Produto;
-import br.com.grupo27.tech.challenge.produto.model.converter.CategoriaConverter;
 import br.com.grupo27.tech.challenge.produto.utils.ProdutoProcessor;
-import org.springframework.batch.core.*;
+import org.springframework.batch.core.Job;
+import org.springframework.batch.core.Step;
 import org.springframework.batch.core.job.builder.JobBuilder;
 import org.springframework.batch.core.launch.support.RunIdIncrementer;
 import org.springframework.batch.core.repository.JobRepository;
@@ -29,7 +28,6 @@ import org.springframework.transaction.PlatformTransactionManager;
 
 import javax.sql.DataSource;
 import java.io.File;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -42,11 +40,13 @@ public class ImpotacaoJobConfiguration {
 
 
     @Bean
-    public Job job(Step step, JobRepository jobRepository) {
+    public Job job(Step step,
+                   Step moverArquivosStep,
+                   JobRepository jobRepository) {
         return new JobBuilder("Importacao-produto", jobRepository)
                 .incrementer(new RunIdIncrementer())
                 .start(step)
-                .next(moverArquivosStep(jobRepository))
+                .next(moverArquivosStep)
                 .build();
     }
 
@@ -90,8 +90,8 @@ public class ImpotacaoJobConfiguration {
         return new JdbcBatchItemWriterBuilder<Produto>()
                 .dataSource(dataSource)
                 .sql("INSERT INTO tb_produto"
-                               +"(nome,descricao,sku,preco,quantidade_estoque,peso, categoria_id, fabricante_id, imagem_principal_url,  imagens_adicionais_url, tags, url_amigavel, meta_title, meta_descrition, status)"
-                 +"values(:nome,:descricao,:sku,:preco,:quantidadeEstoque,:peso, :categoriaId, :fabricanteId, :imagemPrincipalUrl, :imagensAdicionaisUrl, :tags, :urlAmigavel, :metaTitle, :metaDescrition,   :status)")
+                        +"(nome,descricao,sku,preco,quantidade_estoque,peso, categoria_id, fabricante_id, imagem_principal_url,  imagens_adicionais_url, tags, url_amigavel, meta_title, meta_descrition, status)"
+                        +"values(:nome,:descricao,:sku,:preco,:quantidadeEstoque,:peso, :categoriaId, :fabricanteId, :imagemPrincipalUrl, :imagensAdicionaisUrl, :tags, :urlAmigavel, :metaTitle, :metaDescrition,   :status)")
                 .itemSqlParameterSourceProvider(itemSqlParameterSourceProvider())
                 .build();
     }
