@@ -22,4 +22,4 @@ spring:
     jdbc:
       initialize-schema: always
 
-resources-path: ${RESOURCES_PATH:/src/main/resources}
+resources-path: ${RESOURCES_PATH}

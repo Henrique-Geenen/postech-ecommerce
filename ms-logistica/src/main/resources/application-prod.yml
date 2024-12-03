@@ -1,9 +1,0 @@
-spring:
-  datasource:
-    url: jdbc:postgresql://${POSTGRES_URL}/${POSTGRES_DATABASE}?autoReconnect=true
-    username: ${POSTGRES_USERNAME:postgres}
-    password: ${POSTGRES_PASSWORD:postgres}
-
-services:
-  open-route-service:
-    api-key: ${OPENROUTE_API_KEY}

@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5433/postech_ecommerce_logistica?autoReconnect=true
+    username: postgres
+    password: postgres
+
+services:
+  open-route-service:
+    api-key: ${OPENROUTE_API_KEY} #valor do OPENROUTE_API_KEY está no arquivo .env

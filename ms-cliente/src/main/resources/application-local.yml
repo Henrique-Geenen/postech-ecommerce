@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:postgresql://${POSTGRES_URL}/${POSTGRES_DATABASE}
-    username: POSTGRES_USERNAME
-    password: POSTGRES_PASSWORD
+    url: jdbc:postgresql://localhost:5432/postech_ecommerce_cliente
+    username: postgres
+    password: postgres
 
   jpa:
     hibernate:
@@ -19,4 +19,4 @@ api:
   security:
     token:
       expiration-hours: 2
-      secret: ${JWT_SECRET}
+      secret: ${JWT_SECRET} # valor do JWT_SECRET está no arquivo .env

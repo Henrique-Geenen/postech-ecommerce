@@ -33,8 +33,12 @@ spring:
           initial-interval: 5000
           multiplier: 2
 
+logging:
+  level:
+    br.com.pedido: DEBUG
+
 cliente:
-  url: ${SERVICE_CLIENTE_URL:http://localhost:8081}
+  url: ${SERVICE_CLIENTE_URL}
 
 produto:
-  url: ${SERVICE_PRODUTO_URL:http://localhost:8084}
+  url: ${SERVICE_PRODUTO_URL}
