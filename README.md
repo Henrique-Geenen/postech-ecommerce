@@ -67,9 +67,16 @@ Estes comandos iniciarão todos os microsserviços junto com PostgreSQL e Rabbit
 - **Serviço de Pedido**: [http://localhost:8083/swagger-ui.html](http://localhost:8083/swagger-ui.html)
 - **Serviço de Produto**: [http://localhost:8084/swagger-ui.html](http://localhost:8084/swagger-ui.html)
 
-### Inicialização do Banco de Dados
+### Bancos de Dados
 
-O banco de dados PostgreSQL é inicializado com o script **init.sql**, localizado no diretório raiz. Este script é executado automaticamente quando o contêiner do PostgreSQL é iniciado.
+- **PostgreSQL Cliente**: [localhost:5432](localhost:5432)
+- **PostgreSQL Logística**: [localhost:5433](localhost:5433)
+- **PostgreSQL Pedido**: [localhost:5434](localhost:5434)
+- **PostgreSQL Produto**: [localhost:5435](localhost:5435)
+
+### Inicialização dos Bancos de Dados
+
+Os bancos de dados PostgreSQL são inicializados com um script **init.sql**, localizados em diretórios com nomenclatura seguindo o exemplo: 'postgres-serviço/scripts/init'. Estes scripts são executados automaticamente quando o contêiner do PostgreSQL do resectivo microserviço é iniciado.
 
 ### Verificações de Saúde (Health Checks)
 
