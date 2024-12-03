@@ -1,8 +1,8 @@
 services:
-  db:
+  postgresdb:
     build:
         context: ./postgres
-    container_name: postgres_db
+    container_name: postgresdb
     env_file:
       - .env
     environment:
@@ -30,6 +30,11 @@ services:
       - 15672:15672
     networks:
       - netpostech
+    healthcheck:
+      test: rabbitmq-diagnostics check_port_connectivity
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   ms-cliente:
     build:
@@ -38,7 +43,7 @@ services:
     env_file:
       - .env
     depends_on:
-      db:
+      postgresdb:
         condition: service_healthy
     ports:
       - 8081:8081
@@ -58,7 +63,7 @@ services:
     env_file:
       - .env
     depends_on:
-      db:
+      postgresdb:
         condition: service_healthy
     ports:
       - 8082:8082
@@ -79,7 +84,9 @@ services:
     env_file:
       - .env
     depends_on:
-      db:
+      postgresdb:
+        condition: service_healthy
+      rabbitmq:
         condition: service_healthy
     ports:
       - 8083:8083
@@ -104,7 +111,7 @@ services:
     env_file:
       - .env
     depends_on:
-      db:
+      postgresdb:
         condition: service_healthy
     ports:
       - 8084:8084
